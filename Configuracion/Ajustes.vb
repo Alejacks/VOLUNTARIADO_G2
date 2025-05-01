@@ -1,21 +1,22 @@
 ﻿Imports System.IO
+Imports Microsoft.Win32
 
 Public Class Ajustes
 
     Public ReadOnly Property AjustesAplicacion As New Dictionary(Of String, String)
 
-    Private Const _RutaFicheroConfiguracion As String = "./conf.txt"
-    Private ReadOnly _ContenidoBaseFichero As String = $"origenBaseDatos = 127.0.0.1{ControlChars.NewLine}catalogoBaseDatos = VOLUNTARIADO_G2{ControlChars.NewLine}credencialesWindows = True"
+    Public ReadOnly Property RutaFicheroConfiguracion As String = "./conf.txt"
+    Private ReadOnly _ContenidoBaseFichero As String = $"origenBaseDatos = {Environment.MachineName}{ControlChars.NewLine}instanciaSQLServer = {NombreInstancia()}{ControlChars.NewLine}catalogoBaseDatos = VOLUNTARIADO_G2{ControlChars.NewLine}credencialesWindows = True"
 
     Public Sub New()
         Try
-            If Not File.Exists(_RutaFicheroConfiguracion) Then
-                File.CreateText(_RutaFicheroConfiguracion).Dispose()
-                Using fichero As New StreamWriter(_RutaFicheroConfiguracion)
+            If Not File.Exists(RutaFicheroConfiguracion) Then
+                File.CreateText(RutaFicheroConfiguracion).Dispose()
+                Using fichero As New StreamWriter(RutaFicheroConfiguracion)
                     fichero.WriteLine(_ContenidoBaseFichero)
                 End Using
             End If
-            For Each ajuste As String In File.ReadAllLines(_RutaFicheroConfiguracion) 'HERE
+            For Each ajuste As String In File.ReadAllLines(RutaFicheroConfiguracion)
                 If ajuste.Contains("=") Then
                     Dim ajusteActual() As String = ajuste.Split("=")
                     AjustesAplicacion.Add(ajusteActual(0).Trim, ajusteActual(1).Trim)
@@ -41,8 +42,8 @@ Public Class Ajustes
 
     Public Function ActualizarAjuste(ajusteBuscado As String, nuevoValor As String) As Boolean
         AjustesAplicacion(ajusteBuscado) = nuevoValor
-        If CrearSiNoExiste(_RutaFicheroConfiguracion, True) Then
-            Using fichero As New StreamWriter(_RutaFicheroConfiguracion)
+        If CrearSiNoExiste(RutaFicheroConfiguracion, True) Then
+            Using fichero As New StreamWriter(RutaFicheroConfiguracion)
                 For Each ajuste As KeyValuePair(Of String, String) In AjustesAplicacion
                     fichero.WriteLine($"{ajuste.Key} = {ajuste.Value}")
                 Next
@@ -74,21 +75,22 @@ Public Class Ajustes
 
     End Function
 
-    Private Function AgregarContenidoBase(ruta As String) As Boolean
+    Private Function NombreInstancia() As String
+        Dim instancias = New List(Of String)
         Try
-            If CrearSiNoExiste(ruta) Then
-                Using ficheroVacio As New FileStream(ruta, FileMode.Truncate)
-                    Using fichero As New StreamWriter(ruta)
-                        fichero.WriteLine(_ContenidoBaseFichero)
-                    End Using
-                End Using
-                Return True
-            Else
-                Return False
-            End If
+            Using registro As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL")
+                If registro IsNot Nothing Then
+                    For Each instancia In registro.GetValueNames()
+                        If instancia IsNot Nothing Then
+                            instancias.Add(instancia)
+                        End If
+                    Next
+                End If
+            End Using
         Catch ex As Exception
-            Return False
         End Try
+
+        Return If(instancias.Count > 0, instancias(0), String.Empty)
     End Function
 
 End Class

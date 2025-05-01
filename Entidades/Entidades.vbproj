@@ -67,7 +67,9 @@
   <ItemGroup>
     <Compile Include="Actividad.vb" />
     <Compile Include="Curso.vb" />
+    <Compile Include="Dia.vb" />
     <Compile Include="EntidadBD.vb" />
+    <Compile Include="Hora.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -86,6 +88,7 @@
     </Compile>
     <Compile Include="Ods.vb" />
     <Compile Include="Organizacion.vb" />
+    <Compile Include="Tipo.vb" />
     <Compile Include="Voluntario.vb" />
   </ItemGroup>
   <ItemGroup>

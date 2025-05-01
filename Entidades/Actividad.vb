@@ -55,10 +55,10 @@
         {"ESTADO", $"'{Me.Estado}'"},
         {"CONVOCADAPOR", Me.ConvocadaPor.ClavePrimaria(0)},
         {"TECNICO_DE", If(Me.TecnicoDe IsNot Nothing, Me.TecnicoDe.ClavePrimaria(0), "NULL")},
-        {"FECHA_INICIO", $"'{Me.FechaHoraInicio.Date.ToString("yyyy-MM-dd")}'"},
-        {"HORA_INICIO", $"'{Me.FechaHoraInicio.TimeOfDay.ToString("hh\:mm\:ss")}'"},
-        {"FECHA_FIN", $"'{Me.FechaHoraFin.Date.ToString("yyyy-MM-dd")}'"},
-        {"HORA_FIN", $"'{Me.FechaHoraFin.TimeOfDay.ToString("hh\:mm\:ss")}'"}
+        {"FECHA_INICIO", $"'{Me.FechaHoraInicio.Date:yyyy-MM-dd}'"},
+        {"HORA_INICIO", $"'{Me.FechaHoraInicio.TimeOfDay:hh\:mm\:ss}'"},
+        {"FECHA_FIN", $"'{Me.FechaHoraFin.Date:yyyy-MM-dd}'"},
+        {"HORA_FIN", $"'{Me.FechaHoraFin.TimeOfDay:hh\:mm\:ss}'"}
         }
     End Function
 

@@ -58,7 +58,7 @@ Public Class Organizacion
             {"NOMBRE_RESPONSABLE", $"'{Me.NombreResponsable}'"},
             {"APELLIDO1_RESPONSABLE", $"'{Me.Apellido1Responsable}'"},
             {"APELLIDO2_RESPONSABLE", If(Me.Apellido2Responsable IsNot Nothing AndAlso Not String.IsNullOrEmpty(Me.Apellido2Responsable), $"'{Me.Apellido2Responsable}'", "NULL")},
-            {"FECHA_REGISTRO", $"'{Me.FechaRegistro.ToString("a-m-d")}'"}
+            {"FECHA_REGISTRO", $"'{Me.FechaRegistro:a-m-d}'"}
         }
     End Function
 

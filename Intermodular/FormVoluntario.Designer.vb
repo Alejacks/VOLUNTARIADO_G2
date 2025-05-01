@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmVoluntarios
+Partial Class FormVoluntario
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -672,6 +672,7 @@ Partial Class frmVoluntarios
 
     End Sub
 
+    '*** Lista ÚNICA de declaraciones WithEvents ***
     Friend WithEvents tsVoluntarios As ToolStrip
     Friend WithEvents tsbNuevo As ToolStripButton
     Friend WithEvents tsbGuardar As ToolStripButton
@@ -717,7 +718,7 @@ Partial Class frmVoluntarios
     Friend WithEvents lstHorasAsignadas As ListBox
     Friend WithEvents lblHorasAsignadas As Label
     Friend WithEvents lstHorasDisponibles As ListBox
-    Friend WithEvents lblHorasDisponibles As Label
+    Friend WithEvents lblHorasDisponibles As Label ' Asegurarse que solo está aquí una vez
     Friend WithEvents colNif As DataGridViewTextBoxColumn
     Friend WithEvents colNombreCompleto As DataGridViewTextBoxColumn
     Friend WithEvents colCorreo As DataGridViewTextBoxColumn

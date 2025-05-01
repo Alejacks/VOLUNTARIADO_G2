@@ -74,6 +74,54 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormActividades.Designer.vb">
+      <DependentUpon>FormActividades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormActividades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjustes.Designer.vb">
+      <DependentUpon>FormAjustes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAjustes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCursos.Designer.vb">
+      <DependentUpon>FormCursos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCursos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOds.Designer.vb">
+      <DependentUpon>FormOds.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormOds.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrganizacion.Designer.vb">
+      <DependentUpon>FormOrganizacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrganizacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.vb">
+      <DependentUpon>Principal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTipos.Designer.vb">
+      <DependentUpon>FormTipos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTipos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVoluntario.Designer.vb">
+      <DependentUpon>FormVoluntario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVoluntario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -89,22 +137,37 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TempMenu.Designer.vb">
-      <DependentUpon>TempMenu.vb</DependentUpon>
-    </Compile>
-    <Compile Include="TempMenu.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormActividades.resx">
+      <DependentUpon>FormActividades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjustes.resx">
+      <DependentUpon>FormAjustes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCursos.resx">
+      <DependentUpon>FormCursos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOds.resx">
+      <DependentUpon>FormOds.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrganizacion.resx">
+      <DependentUpon>FormOrganizacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTipos.resx">
+      <DependentUpon>FormTipos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVoluntario.resx">
+      <DependentUpon>FormVoluntario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TempMenu.resx">
-      <DependentUpon>TempMenu.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
