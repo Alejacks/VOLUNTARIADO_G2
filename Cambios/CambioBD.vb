@@ -15,6 +15,9 @@ Public MustInherit Class CambioBD
     End Property
 
     Private Function Consulta() As String
+        If _Objeto Is Nothing Then
+            Return ""
+        End If
 
         If Me.GetType Is GetType(Insert) Then
             Return $"INSERT INTO {_Objeto.NombreTabla} ({String.Join(", ", _Objeto.CamposConValores(True).Keys)}) VALUES ({String.Join(", ", _Objeto.CamposConValores(True).Values)})"

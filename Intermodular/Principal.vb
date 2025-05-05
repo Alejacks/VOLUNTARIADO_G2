@@ -8,6 +8,7 @@ Imports Microsoft.Win32
 Imports System.Drawing
 
 Public Class Principal
+
     Private Sub AjustesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjustesToolStripMenuItem.Click
         Dim formAjustes As New FormAjustes()
         formAjustes.ShowDialog(Me)
@@ -66,7 +67,12 @@ Public Class Principal
 
         Dim frmHijo As T = New T()
         frmHijo.MdiParent = Me
-        frmHijo.Show()
+
+        ' Envolver la llamada a Show en BeginInvoke
+        Me.BeginInvoke(New Action(Sub()
+                                      frmHijo.Show()
+                                  End Sub))
     End Sub
+
 
 End Class

@@ -14,6 +14,11 @@ Public Class Organizacion
     Public Property Apellido1Responsable As String
     Public Property Apellido2Responsable As String
     Public Property FechaRegistro As Fecha
+    Public ReadOnly Property NombreResponsableCompleto As String
+        Get
+            Return $"{Me.NombreResponsable} {Me.Apellido1Responsable} {If(Me.Apellido2Responsable IsNot Nothing, Me.Apellido2Responsable, "")}"
+        End Get
+    End Property
 
     Public Sub New(id As Integer, nombre As String, nombreResponsable As String, apellido1responsable As String, fechaRegistro As Fecha)
         Me.Id = id
@@ -55,7 +60,7 @@ Public Class Organizacion
     End Function
 
     Public Function CompareTo(other As Organizacion) As Integer Implements IComparable(Of Organizacion).CompareTo
-        If Me.Equals(other) Then Return 0
+        If Me.Equals(other) OrElse other Is Nothing Then Return 0
         Return Id.CompareTo(other.Id)
     End Function
 

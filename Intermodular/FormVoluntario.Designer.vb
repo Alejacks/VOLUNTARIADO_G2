@@ -2,7 +2,6 @@
 Partial Class FormVoluntario
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -14,26 +13,13 @@ Partial Class FormVoluntario
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.
-    'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.tsVoluntarios = New System.Windows.Forms.ToolStrip()
-        Me.tsbNuevo = New System.Windows.Forms.ToolStripButton()
-        Me.tsbGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.tsbEliminar = New System.Windows.Forms.ToolStripButton()
-        Me.tsbCancelar = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tslBuscar = New System.Windows.Forms.ToolStripLabel()
-        Me.tstBuscar = New System.Windows.Forms.ToolStripTextBox()
-        Me.tsbBuscar = New System.Windows.Forms.ToolStripButton()
         Me.SplitContainerPrincipal = New System.Windows.Forms.SplitContainer()
         Me.dgvVoluntarios = New System.Windows.Forms.DataGridView()
         Me.colNif = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -69,13 +55,19 @@ Partial Class FormVoluntario
         Me.lblTiposDisponibles = New System.Windows.Forms.Label()
         Me.tpDisponibilidad = New System.Windows.Forms.TabPage()
         Me.gbDisponibilidad = New System.Windows.Forms.GroupBox()
+        Me.cmbDiaDisponibilidad = New System.Windows.Forms.ComboBox()
+        Me.lblDiaDisponibilidad = New System.Windows.Forms.Label()
         Me.btnQuitarDisponibilidad = New System.Windows.Forms.Button()
         Me.btnAnadirDisponibilidad = New System.Windows.Forms.Button()
-        Me.lstHorasAsignadas = New System.Windows.Forms.ListBox()
-        Me.lblHorasAsignadas = New System.Windows.Forms.Label()
-        Me.lstHorasDisponibles = New System.Windows.Forms.ListBox()
-        Me.lblHorasDisponibles = New System.Windows.Forms.Label()
-        Me.tsVoluntarios.SuspendLayout()
+        Me.lstHorasAsignadasDia = New System.Windows.Forms.ListBox()
+        Me.lblHorasAsignadasDia = New System.Windows.Forms.Label()
+        Me.lstHorasDisponiblesDia = New System.Windows.Forms.ListBox()
+        Me.lblHorasDisponiblesDia = New System.Windows.Forms.Label()
+        Me.tsVoluntarios = New System.Windows.Forms.ToolStrip()
+        Me.tsbNuevo = New System.Windows.Forms.ToolStripButton()
+        Me.tsbGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.tsbEliminar = New System.Windows.Forms.ToolStripButton()
+        Me.tsbCancelar = New System.Windows.Forms.ToolStripButton()
         CType(Me.SplitContainerPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerPrincipal.Panel1.SuspendLayout()
         Me.SplitContainerPrincipal.Panel2.SuspendLayout()
@@ -88,83 +80,14 @@ Partial Class FormVoluntario
         Me.gbIntereses.SuspendLayout()
         Me.tpDisponibilidad.SuspendLayout()
         Me.gbDisponibilidad.SuspendLayout()
+        Me.tsVoluntarios.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'tsVoluntarios
-        '
-        Me.tsVoluntarios.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.tsVoluntarios.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNuevo, Me.tsbGuardar, Me.tsbEliminar, Me.tsbCancelar, Me.ToolStripSeparator1, Me.tslBuscar, Me.tstBuscar, Me.tsbBuscar})
-        Me.tsVoluntarios.Location = New System.Drawing.Point(0, 0)
-        Me.tsVoluntarios.Name = "tsVoluntarios"
-        Me.tsVoluntarios.Size = New System.Drawing.Size(984, 27)
-        Me.tsVoluntarios.TabIndex = 1
-        Me.tsVoluntarios.Text = "ToolStrip1"
-        '
-        'tsbNuevo
-        '
-        Me.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text ' Cambiado a Text
-        Me.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbNuevo.Name = "tsbNuevo"
-        Me.tsbNuevo.Size = New System.Drawing.Size(56, 24) ' Ajustar tamaño si es necesario
-        Me.tsbNuevo.Text = "Nuevo"
-        '
-        'tsbGuardar
-        '
-        Me.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text ' Cambiado a Text
-        Me.tsbGuardar.Enabled = False
-        Me.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbGuardar.Name = "tsbGuardar"
-        Me.tsbGuardar.Size = New System.Drawing.Size(66, 24) ' Ajustar tamaño si es necesario
-        Me.tsbGuardar.Text = "Guardar"
-        '
-        'tsbEliminar
-        '
-        Me.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text ' Cambiado a Text
-        Me.tsbEliminar.Enabled = False
-        Me.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbEliminar.Name = "tsbEliminar"
-        Me.tsbEliminar.Size = New System.Drawing.Size(67, 24) ' Ajustar tamaño si es necesario
-        Me.tsbEliminar.Text = "Eliminar"
-        '
-        'tsbCancelar
-        '
-        Me.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text ' Cambiado a Text
-        Me.tsbCancelar.Enabled = False
-        Me.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbCancelar.Name = "tsbCancelar"
-        Me.tsbCancelar.Size = New System.Drawing.Size(70, 24) ' Ajustar tamaño si es necesario
-        Me.tsbCancelar.Text = "Cancelar"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
-        '
-        'tslBuscar
-        '
-        Me.tslBuscar.Name = "tslBuscar"
-        Me.tslBuscar.Size = New System.Drawing.Size(55, 24)
-        Me.tslBuscar.Text = "Buscar:"
-        '
-        'tstBuscar
-        '
-        Me.tstBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tstBuscar.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.tstBuscar.Name = "tstBuscar"
-        Me.tstBuscar.Size = New System.Drawing.Size(200, 27)
-        '
-        'tsbBuscar
-        '
-        Me.tsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text ' Cambiado a Text
-        Me.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbBuscar.Name = "tsbBuscar"
-        Me.tsbBuscar.Size = New System.Drawing.Size(56, 24) ' Ajustar tamaño si es necesario
-        Me.tsbBuscar.Text = "Buscar"
         '
         'SplitContainerPrincipal
         '
         Me.SplitContainerPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerPrincipal.Location = New System.Drawing.Point(0, 27)
+        Me.SplitContainerPrincipal.Location = New System.Drawing.Point(0, 25)
+        Me.SplitContainerPrincipal.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainerPrincipal.Name = "SplitContainerPrincipal"
         Me.SplitContainerPrincipal.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -175,8 +98,9 @@ Partial Class FormVoluntario
         'SplitContainerPrincipal.Panel2
         '
         Me.SplitContainerPrincipal.Panel2.Controls.Add(Me.tabDetalles)
-        Me.SplitContainerPrincipal.Size = New System.Drawing.Size(984, 728)
-        Me.SplitContainerPrincipal.SplitterDistance = 248
+        Me.SplitContainerPrincipal.Size = New System.Drawing.Size(738, 588)
+        Me.SplitContainerPrincipal.SplitterDistance = 200
+        Me.SplitContainerPrincipal.SplitterWidth = 3
         Me.SplitContainerPrincipal.TabIndex = 2
         '
         'dgvVoluntarios
@@ -207,47 +131,41 @@ Partial Class FormVoluntario
         Me.dgvVoluntarios.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvVoluntarios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvVoluntarios.Location = New System.Drawing.Point(0, 0)
+        Me.dgvVoluntarios.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvVoluntarios.MultiSelect = False
         Me.dgvVoluntarios.Name = "dgvVoluntarios"
         Me.dgvVoluntarios.ReadOnly = True
         Me.dgvVoluntarios.RowHeadersWidth = 51
         Me.dgvVoluntarios.RowTemplate.Height = 24
         Me.dgvVoluntarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVoluntarios.Size = New System.Drawing.Size(984, 248)
+        Me.dgvVoluntarios.Size = New System.Drawing.Size(738, 200)
         Me.dgvVoluntarios.TabIndex = 0
         '
         'colNif
         '
         Me.colNif.DataPropertyName = "Nif"
-        Me.colNif.FillWeight = 80.0!
         Me.colNif.HeaderText = "NIF"
-        Me.colNif.MinimumWidth = 6
         Me.colNif.Name = "colNif"
         Me.colNif.ReadOnly = True
         '
         'colNombreCompleto
         '
-        Me.colNombreCompleto.DataPropertyName = "ApellidoNombre" ' Usamos la propiedad calculada
-        Me.colNombreCompleto.FillWeight = 150.0!
-        Me.colNombreCompleto.HeaderText = "Nombre Voluntario"
-        Me.colNombreCompleto.MinimumWidth = 6
+        Me.colNombreCompleto.DataPropertyName = "NombreCompleto"
+        Me.colNombreCompleto.HeaderText = "Nombre Completo"
         Me.colNombreCompleto.Name = "colNombreCompleto"
         Me.colNombreCompleto.ReadOnly = True
         '
         'colCorreo
         '
         Me.colCorreo.DataPropertyName = "Correo"
-        Me.colCorreo.HeaderText = "Correo Electrónico"
-        Me.colCorreo.MinimumWidth = 6
+        Me.colCorreo.HeaderText = "Correo"
         Me.colCorreo.Name = "colCorreo"
         Me.colCorreo.ReadOnly = True
         '
         'colCurso
         '
-        Me.colCurso.DataPropertyName = "Estudia" ' El DataGridView mostrará el .ToString() del objeto Curso
-        Me.colCurso.FillWeight = 70.0!
+        Me.colCurso.DataPropertyName = "Estudia"
         Me.colCurso.HeaderText = "Curso"
-        Me.colCurso.MinimumWidth = 6
         Me.colCurso.Name = "colCurso"
         Me.colCurso.ReadOnly = True
         '
@@ -258,18 +176,20 @@ Partial Class FormVoluntario
         Me.tabDetalles.Controls.Add(Me.tpDisponibilidad)
         Me.tabDetalles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabDetalles.Location = New System.Drawing.Point(0, 0)
+        Me.tabDetalles.Margin = New System.Windows.Forms.Padding(2)
         Me.tabDetalles.Name = "tabDetalles"
         Me.tabDetalles.SelectedIndex = 0
-        Me.tabDetalles.Size = New System.Drawing.Size(984, 476)
+        Me.tabDetalles.Size = New System.Drawing.Size(738, 385)
         Me.tabDetalles.TabIndex = 0
         '
         'tpDetallesVoluntario
         '
         Me.tpDetallesVoluntario.Controls.Add(Me.gbDetallesVoluntario)
-        Me.tpDetallesVoluntario.Location = New System.Drawing.Point(4, 25)
+        Me.tpDetallesVoluntario.Location = New System.Drawing.Point(4, 22)
+        Me.tpDetallesVoluntario.Margin = New System.Windows.Forms.Padding(2)
         Me.tpDetallesVoluntario.Name = "tpDetallesVoluntario"
-        Me.tpDetallesVoluntario.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpDetallesVoluntario.Size = New System.Drawing.Size(976, 447)
+        Me.tpDetallesVoluntario.Padding = New System.Windows.Forms.Padding(2)
+        Me.tpDetallesVoluntario.Size = New System.Drawing.Size(730, 359)
         Me.tpDetallesVoluntario.TabIndex = 0
         Me.tpDetallesVoluntario.Text = "Detalles Voluntario"
         Me.tpDetallesVoluntario.UseVisualStyleBackColor = True
@@ -295,9 +215,11 @@ Partial Class FormVoluntario
         Me.gbDetallesVoluntario.Controls.Add(Me.lblNombre)
         Me.gbDetallesVoluntario.Controls.Add(Me.txtNif)
         Me.gbDetallesVoluntario.Controls.Add(Me.lblNif)
-        Me.gbDetallesVoluntario.Location = New System.Drawing.Point(6, 6)
+        Me.gbDetallesVoluntario.Location = New System.Drawing.Point(4, 5)
+        Me.gbDetallesVoluntario.Margin = New System.Windows.Forms.Padding(2)
         Me.gbDetallesVoluntario.Name = "gbDetallesVoluntario"
-        Me.gbDetallesVoluntario.Size = New System.Drawing.Size(964, 435)
+        Me.gbDetallesVoluntario.Padding = New System.Windows.Forms.Padding(2)
+        Me.gbDetallesVoluntario.Size = New System.Drawing.Size(723, 351)
         Me.gbDetallesVoluntario.TabIndex = 0
         Me.gbDetallesVoluntario.TabStop = False
         Me.gbDetallesVoluntario.Text = "Información Personal"
@@ -306,17 +228,19 @@ Partial Class FormVoluntario
         '
         Me.cmbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCurso.FormattingEnabled = True
-        Me.cmbCurso.Location = New System.Drawing.Point(125, 169)
+        Me.cmbCurso.Location = New System.Drawing.Point(94, 137)
+        Me.cmbCurso.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbCurso.Name = "cmbCurso"
-        Me.cmbCurso.Size = New System.Drawing.Size(290, 24)
+        Me.cmbCurso.Size = New System.Drawing.Size(218, 21)
         Me.cmbCurso.TabIndex = 7
         '
         'lblCurso
         '
         Me.lblCurso.AutoSize = True
-        Me.lblCurso.Location = New System.Drawing.Point(16, 172)
+        Me.lblCurso.Location = New System.Drawing.Point(12, 140)
+        Me.lblCurso.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCurso.Name = "lblCurso"
-        Me.lblCurso.Size = New System.Drawing.Size(47, 16)
+        Me.lblCurso.Size = New System.Drawing.Size(37, 13)
         Me.lblCurso.TabIndex = 14
         Me.lblCurso.Text = "Curso:"
         '
@@ -324,19 +248,21 @@ Partial Class FormVoluntario
         '
         Me.txtExperiencia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtExperiencia.Location = New System.Drawing.Point(125, 202)
+        Me.txtExperiencia.Location = New System.Drawing.Point(94, 164)
+        Me.txtExperiencia.Margin = New System.Windows.Forms.Padding(2)
         Me.txtExperiencia.Multiline = True
         Me.txtExperiencia.Name = "txtExperiencia"
         Me.txtExperiencia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtExperiencia.Size = New System.Drawing.Size(818, 90)
+        Me.txtExperiencia.Size = New System.Drawing.Size(614, 74)
         Me.txtExperiencia.TabIndex = 8
         '
         'lblExperiencia
         '
         Me.lblExperiencia.AutoSize = True
-        Me.lblExperiencia.Location = New System.Drawing.Point(16, 205)
+        Me.lblExperiencia.Location = New System.Drawing.Point(12, 167)
+        Me.lblExperiencia.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblExperiencia.Name = "lblExperiencia"
-        Me.lblExperiencia.Size = New System.Drawing.Size(81, 16)
+        Me.lblExperiencia.Size = New System.Drawing.Size(65, 13)
         Me.lblExperiencia.TabIndex = 12
         Me.lblExperiencia.Text = "Experiencia:"
         '
@@ -344,34 +270,38 @@ Partial Class FormVoluntario
         '
         Me.txtCorreo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCorreo.Location = New System.Drawing.Point(125, 136)
+        Me.txtCorreo.Location = New System.Drawing.Point(94, 110)
+        Me.txtCorreo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCorreo.Name = "txtCorreo"
-        Me.txtCorreo.Size = New System.Drawing.Size(818, 22)
+        Me.txtCorreo.Size = New System.Drawing.Size(614, 20)
         Me.txtCorreo.TabIndex = 6
         '
         'lblCorreo
         '
         Me.lblCorreo.AutoSize = True
-        Me.lblCorreo.Location = New System.Drawing.Point(16, 139)
+        Me.lblCorreo.Location = New System.Drawing.Point(12, 113)
+        Me.lblCorreo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCorreo.Name = "lblCorreo"
-        Me.lblCorreo.Size = New System.Drawing.Size(51, 16)
+        Me.lblCorreo.Size = New System.Drawing.Size(41, 13)
         Me.lblCorreo.TabIndex = 10
         Me.lblCorreo.Text = "Correo:"
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(555, 103)
+        Me.txtTelefono.Location = New System.Drawing.Point(416, 84)
+        Me.txtTelefono.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTelefono.MaxLength = 9
         Me.txtTelefono.Name = "txtTelefono"
-        Me.txtTelefono.Size = New System.Drawing.Size(130, 22)
+        Me.txtTelefono.Size = New System.Drawing.Size(98, 20)
         Me.txtTelefono.TabIndex = 5
         '
         'lblTelefono
         '
         Me.lblTelefono.AutoSize = True
-        Me.lblTelefono.Location = New System.Drawing.Point(475, 106)
+        Me.lblTelefono.Location = New System.Drawing.Point(356, 86)
+        Me.lblTelefono.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(64, 16)
+        Me.lblTelefono.Size = New System.Drawing.Size(52, 13)
         Me.lblTelefono.TabIndex = 8
         Me.lblTelefono.Text = "Teléfono:"
         '
@@ -379,33 +309,37 @@ Partial Class FormVoluntario
         '
         Me.txtApellido2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtApellido2.Location = New System.Drawing.Point(555, 70)
+        Me.txtApellido2.Location = New System.Drawing.Point(416, 57)
+        Me.txtApellido2.Margin = New System.Windows.Forms.Padding(2)
         Me.txtApellido2.Name = "txtApellido2"
-        Me.txtApellido2.Size = New System.Drawing.Size(388, 22)
+        Me.txtApellido2.Size = New System.Drawing.Size(292, 20)
         Me.txtApellido2.TabIndex = 3
         '
         'lblApellido2
         '
         Me.lblApellido2.AutoSize = True
-        Me.lblApellido2.Location = New System.Drawing.Point(475, 73)
+        Me.lblApellido2.Location = New System.Drawing.Point(356, 59)
+        Me.lblApellido2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblApellido2.Name = "lblApellido2"
-        Me.lblApellido2.Size = New System.Drawing.Size(70, 16)
+        Me.lblApellido2.Size = New System.Drawing.Size(56, 13)
         Me.lblApellido2.TabIndex = 6
         Me.lblApellido2.Text = "Apellido 2:"
         '
         'txtApellido1
         '
-        Me.txtApellido1.Location = New System.Drawing.Point(125, 70)
+        Me.txtApellido1.Location = New System.Drawing.Point(94, 57)
+        Me.txtApellido1.Margin = New System.Windows.Forms.Padding(2)
         Me.txtApellido1.Name = "txtApellido1"
-        Me.txtApellido1.Size = New System.Drawing.Size(290, 22)
+        Me.txtApellido1.Size = New System.Drawing.Size(218, 20)
         Me.txtApellido1.TabIndex = 2
         '
         'lblApellido1
         '
         Me.lblApellido1.AutoSize = True
-        Me.lblApellido1.Location = New System.Drawing.Point(16, 73)
+        Me.lblApellido1.Location = New System.Drawing.Point(12, 59)
+        Me.lblApellido1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblApellido1.Name = "lblApellido1"
-        Me.lblApellido1.Size = New System.Drawing.Size(70, 16)
+        Me.lblApellido1.Size = New System.Drawing.Size(56, 13)
         Me.lblApellido1.TabIndex = 4
         Me.lblApellido1.Text = "Apellido 1:"
         '
@@ -413,44 +347,49 @@ Partial Class FormVoluntario
         '
         Me.txtNombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNombre.Location = New System.Drawing.Point(330, 37)
+        Me.txtNombre.Location = New System.Drawing.Point(248, 30)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(613, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(461, 20)
         Me.txtNombre.TabIndex = 1
         '
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(258, 40)
+        Me.lblNombre.Location = New System.Drawing.Point(194, 32)
+        Me.lblNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(59, 16)
+        Me.lblNombre.Size = New System.Drawing.Size(47, 13)
         Me.lblNombre.TabIndex = 2
         Me.lblNombre.Text = "Nombre:"
         '
         'txtNif
         '
-        Me.txtNif.Location = New System.Drawing.Point(125, 37)
-        Me.txtNif.MaxLength = 10 ' Ajustar si NIE tiene formato diferente
+        Me.txtNif.Location = New System.Drawing.Point(94, 30)
+        Me.txtNif.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtNif.MaxLength = 10
         Me.txtNif.Name = "txtNif"
-        Me.txtNif.Size = New System.Drawing.Size(115, 22)
+        Me.txtNif.Size = New System.Drawing.Size(87, 20)
         Me.txtNif.TabIndex = 0
         '
         'lblNif
         '
         Me.lblNif.AutoSize = True
-        Me.lblNif.Location = New System.Drawing.Point(16, 40)
+        Me.lblNif.Location = New System.Drawing.Point(12, 32)
+        Me.lblNif.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNif.Name = "lblNif"
-        Me.lblNif.Size = New System.Drawing.Size(31, 16)
+        Me.lblNif.Size = New System.Drawing.Size(27, 13)
         Me.lblNif.TabIndex = 0
         Me.lblNif.Text = "NIF:"
         '
         'tpIntereses
         '
         Me.tpIntereses.Controls.Add(Me.gbIntereses)
-        Me.tpIntereses.Location = New System.Drawing.Point(4, 25)
+        Me.tpIntereses.Location = New System.Drawing.Point(4, 22)
+        Me.tpIntereses.Margin = New System.Windows.Forms.Padding(2)
         Me.tpIntereses.Name = "tpIntereses"
-        Me.tpIntereses.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpIntereses.Size = New System.Drawing.Size(976, 447)
+        Me.tpIntereses.Padding = New System.Windows.Forms.Padding(2)
+        Me.tpIntereses.Size = New System.Drawing.Size(730, 359)
         Me.tpIntereses.TabIndex = 1
         Me.tpIntereses.Text = "Intereses"
         Me.tpIntereses.UseVisualStyleBackColor = True
@@ -466,9 +405,11 @@ Partial Class FormVoluntario
         Me.gbIntereses.Controls.Add(Me.lblTiposInteresado)
         Me.gbIntereses.Controls.Add(Me.lstTiposDisponibles)
         Me.gbIntereses.Controls.Add(Me.lblTiposDisponibles)
-        Me.gbIntereses.Location = New System.Drawing.Point(6, 6)
+        Me.gbIntereses.Location = New System.Drawing.Point(4, 5)
+        Me.gbIntereses.Margin = New System.Windows.Forms.Padding(2)
         Me.gbIntereses.Name = "gbIntereses"
-        Me.gbIntereses.Size = New System.Drawing.Size(962, 435)
+        Me.gbIntereses.Padding = New System.Windows.Forms.Padding(2)
+        Me.gbIntereses.Size = New System.Drawing.Size(722, 353)
         Me.gbIntereses.TabIndex = 1
         Me.gbIntereses.TabStop = False
         Me.gbIntereses.Text = "Áreas de Interés del Voluntario"
@@ -477,9 +418,10 @@ Partial Class FormVoluntario
         '
         Me.btnQuitarInteres.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnQuitarInteres.Enabled = False
-        Me.btnQuitarInteres.Location = New System.Drawing.Point(450, 233)
+        Me.btnQuitarInteres.Location = New System.Drawing.Point(338, 189)
+        Me.btnQuitarInteres.Margin = New System.Windows.Forms.Padding(2)
         Me.btnQuitarInteres.Name = "btnQuitarInteres"
-        Me.btnQuitarInteres.Size = New System.Drawing.Size(62, 30)
+        Me.btnQuitarInteres.Size = New System.Drawing.Size(46, 24)
         Me.btnQuitarInteres.TabIndex = 3
         Me.btnQuitarInteres.Text = "<<"
         Me.btnQuitarInteres.UseVisualStyleBackColor = True
@@ -488,9 +430,10 @@ Partial Class FormVoluntario
         '
         Me.btnAnadirInteres.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnAnadirInteres.Enabled = False
-        Me.btnAnadirInteres.Location = New System.Drawing.Point(450, 183)
+        Me.btnAnadirInteres.Location = New System.Drawing.Point(338, 149)
+        Me.btnAnadirInteres.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAnadirInteres.Name = "btnAnadirInteres"
-        Me.btnAnadirInteres.Size = New System.Drawing.Size(62, 30)
+        Me.btnAnadirInteres.Size = New System.Drawing.Size(46, 24)
         Me.btnAnadirInteres.TabIndex = 1
         Me.btnAnadirInteres.Text = ">>"
         Me.btnAnadirInteres.UseVisualStyleBackColor = True
@@ -499,23 +442,24 @@ Partial Class FormVoluntario
         '
         Me.lstTiposInteresado.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lstTiposInteresado.DisplayMember = "Descripcion" ' Asume que la entidad Tipo tiene esta propiedad
+        Me.lstTiposInteresado.DisplayMember = "Descripcion"
         Me.lstTiposInteresado.Enabled = False
         Me.lstTiposInteresado.FormattingEnabled = True
-        Me.lstTiposInteresado.ItemHeight = 16
-        Me.lstTiposInteresado.Location = New System.Drawing.Point(531, 51)
+        Me.lstTiposInteresado.Location = New System.Drawing.Point(398, 41)
+        Me.lstTiposInteresado.Margin = New System.Windows.Forms.Padding(2)
         Me.lstTiposInteresado.Name = "lstTiposInteresado"
         Me.lstTiposInteresado.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstTiposInteresado.Size = New System.Drawing.Size(414, 372)
+        Me.lstTiposInteresado.Size = New System.Drawing.Size(312, 303)
         Me.lstTiposInteresado.TabIndex = 2
         '
         'lblTiposInteresado
         '
         Me.lblTiposInteresado.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTiposInteresado.AutoSize = True
-        Me.lblTiposInteresado.Location = New System.Drawing.Point(528, 32)
+        Me.lblTiposInteresado.Location = New System.Drawing.Point(396, 26)
+        Me.lblTiposInteresado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblTiposInteresado.Name = "lblTiposInteresado"
-        Me.lblTiposInteresado.Size = New System.Drawing.Size(133, 16)
+        Me.lblTiposInteresado.Size = New System.Drawing.Size(106, 13)
         Me.lblTiposInteresado.TabIndex = 2
         Me.lblTiposInteresado.Text = "Interesado/a en tipo:"
         '
@@ -523,32 +467,34 @@ Partial Class FormVoluntario
         '
         Me.lstTiposDisponibles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lstTiposDisponibles.DisplayMember = "Descripcion" ' Asume que la entidad Tipo tiene esta propiedad
+        Me.lstTiposDisponibles.DisplayMember = "Descripcion"
         Me.lstTiposDisponibles.Enabled = False
         Me.lstTiposDisponibles.FormattingEnabled = True
-        Me.lstTiposDisponibles.ItemHeight = 16
-        Me.lstTiposDisponibles.Location = New System.Drawing.Point(19, 51)
+        Me.lstTiposDisponibles.Location = New System.Drawing.Point(14, 41)
+        Me.lstTiposDisponibles.Margin = New System.Windows.Forms.Padding(2)
         Me.lstTiposDisponibles.Name = "lstTiposDisponibles"
         Me.lstTiposDisponibles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstTiposDisponibles.Size = New System.Drawing.Size(414, 372)
+        Me.lstTiposDisponibles.Size = New System.Drawing.Size(312, 303)
         Me.lstTiposDisponibles.TabIndex = 0
         '
         'lblTiposDisponibles
         '
         Me.lblTiposDisponibles.AutoSize = True
-        Me.lblTiposDisponibles.Location = New System.Drawing.Point(16, 32)
+        Me.lblTiposDisponibles.Location = New System.Drawing.Point(12, 26)
+        Me.lblTiposDisponibles.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblTiposDisponibles.Name = "lblTiposDisponibles"
-        Me.lblTiposDisponibles.Size = New System.Drawing.Size(120, 16)
+        Me.lblTiposDisponibles.Size = New System.Drawing.Size(93, 13)
         Me.lblTiposDisponibles.TabIndex = 0
         Me.lblTiposDisponibles.Text = "Tipos Disponibles:"
         '
         'tpDisponibilidad
         '
         Me.tpDisponibilidad.Controls.Add(Me.gbDisponibilidad)
-        Me.tpDisponibilidad.Location = New System.Drawing.Point(4, 25)
+        Me.tpDisponibilidad.Location = New System.Drawing.Point(4, 22)
+        Me.tpDisponibilidad.Margin = New System.Windows.Forms.Padding(2)
         Me.tpDisponibilidad.Name = "tpDisponibilidad"
-        Me.tpDisponibilidad.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpDisponibilidad.Size = New System.Drawing.Size(976, 447)
+        Me.tpDisponibilidad.Padding = New System.Windows.Forms.Padding(2)
+        Me.tpDisponibilidad.Size = New System.Drawing.Size(730, 359)
         Me.tpDisponibilidad.TabIndex = 2
         Me.tpDisponibilidad.Text = "Disponibilidad"
         Me.tpDisponibilidad.UseVisualStyleBackColor = True
@@ -558,26 +504,51 @@ Partial Class FormVoluntario
         Me.gbDisponibilidad.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbDisponibilidad.Controls.Add(Me.cmbDiaDisponibilidad)
+        Me.gbDisponibilidad.Controls.Add(Me.lblDiaDisponibilidad)
         Me.gbDisponibilidad.Controls.Add(Me.btnQuitarDisponibilidad)
         Me.gbDisponibilidad.Controls.Add(Me.btnAnadirDisponibilidad)
-        Me.gbDisponibilidad.Controls.Add(Me.lstHorasAsignadas)
-        Me.gbDisponibilidad.Controls.Add(Me.lblHorasAsignadas)
-        Me.gbDisponibilidad.Controls.Add(Me.lstHorasDisponibles)
-        Me.gbDisponibilidad.Controls.Add(Me.lblHorasDisponibles)
-        Me.gbDisponibilidad.Location = New System.Drawing.Point(6, 6)
+        Me.gbDisponibilidad.Controls.Add(Me.lstHorasAsignadasDia)
+        Me.gbDisponibilidad.Controls.Add(Me.lblHorasAsignadasDia)
+        Me.gbDisponibilidad.Controls.Add(Me.lstHorasDisponiblesDia)
+        Me.gbDisponibilidad.Controls.Add(Me.lblHorasDisponiblesDia)
+        Me.gbDisponibilidad.Location = New System.Drawing.Point(4, 5)
+        Me.gbDisponibilidad.Margin = New System.Windows.Forms.Padding(2)
         Me.gbDisponibilidad.Name = "gbDisponibilidad"
-        Me.gbDisponibilidad.Size = New System.Drawing.Size(962, 435)
+        Me.gbDisponibilidad.Padding = New System.Windows.Forms.Padding(2)
+        Me.gbDisponibilidad.Size = New System.Drawing.Size(722, 351)
         Me.gbDisponibilidad.TabIndex = 2
         Me.gbDisponibilidad.TabStop = False
-        Me.gbDisponibilidad.Text = "Horas de Disponibilidad del Voluntario"
+        Me.gbDisponibilidad.Text = "Horas de Disponibilidad del Voluntario por Día"
+        '
+        'cmbDiaDisponibilidad
+        '
+        Me.cmbDiaDisponibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbDiaDisponibilidad.FormattingEnabled = True
+        Me.cmbDiaDisponibilidad.Location = New System.Drawing.Point(104, 19)
+        Me.cmbDiaDisponibilidad.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbDiaDisponibilidad.Name = "cmbDiaDisponibilidad"
+        Me.cmbDiaDisponibilidad.Size = New System.Drawing.Size(150, 21)
+        Me.cmbDiaDisponibilidad.TabIndex = 7
+        '
+        'lblDiaDisponibilidad
+        '
+        Me.lblDiaDisponibilidad.AutoSize = True
+        Me.lblDiaDisponibilidad.Location = New System.Drawing.Point(12, 22)
+        Me.lblDiaDisponibilidad.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDiaDisponibilidad.Name = "lblDiaDisponibilidad"
+        Me.lblDiaDisponibilidad.Size = New System.Drawing.Size(88, 13)
+        Me.lblDiaDisponibilidad.TabIndex = 6
+        Me.lblDiaDisponibilidad.Text = "Seleccionar Día:"
         '
         'btnQuitarDisponibilidad
         '
         Me.btnQuitarDisponibilidad.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnQuitarDisponibilidad.Enabled = False
-        Me.btnQuitarDisponibilidad.Location = New System.Drawing.Point(450, 233)
+        Me.btnQuitarDisponibilidad.Location = New System.Drawing.Point(338, 205)
+        Me.btnQuitarDisponibilidad.Margin = New System.Windows.Forms.Padding(2)
         Me.btnQuitarDisponibilidad.Name = "btnQuitarDisponibilidad"
-        Me.btnQuitarDisponibilidad.Size = New System.Drawing.Size(62, 30)
+        Me.btnQuitarDisponibilidad.Size = New System.Drawing.Size(46, 24)
         Me.btnQuitarDisponibilidad.TabIndex = 3
         Me.btnQuitarDisponibilidad.Text = "<<"
         Me.btnQuitarDisponibilidad.UseVisualStyleBackColor = True
@@ -586,72 +557,119 @@ Partial Class FormVoluntario
         '
         Me.btnAnadirDisponibilidad.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnAnadirDisponibilidad.Enabled = False
-        Me.btnAnadirDisponibilidad.Location = New System.Drawing.Point(450, 183)
+        Me.btnAnadirDisponibilidad.Location = New System.Drawing.Point(338, 165)
+        Me.btnAnadirDisponibilidad.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAnadirDisponibilidad.Name = "btnAnadirDisponibilidad"
-        Me.btnAnadirDisponibilidad.Size = New System.Drawing.Size(62, 30)
+        Me.btnAnadirDisponibilidad.Size = New System.Drawing.Size(46, 24)
         Me.btnAnadirDisponibilidad.TabIndex = 1
         Me.btnAnadirDisponibilidad.Text = ">>"
         Me.btnAnadirDisponibilidad.UseVisualStyleBackColor = True
         '
-        'lstHorasAsignadas
+        'lstHorasAsignadasDia
         '
-        Me.lstHorasAsignadas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lstHorasAsignadasDia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lstHorasAsignadas.DisplayMember = "DescripcionCompleta" ' Asume que la entidad Hora tiene esta propiedad (ej: "Lunes 09:00-14:00")
-        Me.lstHorasAsignadas.Enabled = False
-        Me.lstHorasAsignadas.FormattingEnabled = True
-        Me.lstHorasAsignadas.ItemHeight = 16
-        Me.lstHorasAsignadas.Location = New System.Drawing.Point(531, 51)
-        Me.lstHorasAsignadas.Name = "lstHorasAsignadas"
-        Me.lstHorasAsignadas.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstHorasAsignadas.Size = New System.Drawing.Size(414, 372)
-        Me.lstHorasAsignadas.TabIndex = 2
+        Me.lstHorasAsignadasDia.DisplayMember = "DescripcionCompleta"
+        Me.lstHorasAsignadasDia.Enabled = False
+        Me.lstHorasAsignadasDia.FormattingEnabled = True
+        Me.lstHorasAsignadasDia.Location = New System.Drawing.Point(398, 66)
+        Me.lstHorasAsignadasDia.Margin = New System.Windows.Forms.Padding(2)
+        Me.lstHorasAsignadasDia.Name = "lstHorasAsignadasDia"
+        Me.lstHorasAsignadasDia.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
+        Me.lstHorasAsignadasDia.Size = New System.Drawing.Size(312, 277)
+        Me.lstHorasAsignadasDia.TabIndex = 2
         '
-        'lblHorasAsignadas
+        'lblHorasAsignadasDia
         '
-        Me.lblHorasAsignadas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblHorasAsignadas.AutoSize = True
-        Me.lblHorasAsignadas.Location = New System.Drawing.Point(528, 32)
-        Me.lblHorasAsignadas.Name = "lblHorasAsignadas"
-        Me.lblHorasAsignadas.Size = New System.Drawing.Size(139, 16)
-        Me.lblHorasAsignadas.TabIndex = 2
-        Me.lblHorasAsignadas.Text = "Disponible en Horas:"
+        Me.lblHorasAsignadasDia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblHorasAsignadasDia.AutoSize = True
+        Me.lblHorasAsignadasDia.Location = New System.Drawing.Point(396, 51)
+        Me.lblHorasAsignadasDia.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblHorasAsignadasDia.Name = "lblHorasAsignadasDia"
+        Me.lblHorasAsignadasDia.Size = New System.Drawing.Size(123, 13)
+        Me.lblHorasAsignadasDia.TabIndex = 2
+        Me.lblHorasAsignadasDia.Text = "Disponible en Horas (día):"
         '
-        'lstHorasDisponibles
+        'lstHorasDisponiblesDia
         '
-        Me.lstHorasDisponibles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.lstHorasDisponiblesDia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lstHorasDisponibles.DisplayMember = "DescripcionCompleta" ' Asume que la entidad Hora tiene esta propiedad (ej: "Lunes 09:00-14:00")
-        Me.lstHorasDisponibles.Enabled = False
-        Me.lstHorasDisponibles.FormattingEnabled = True
-        Me.lstHorasDisponibles.ItemHeight = 16
-        Me.lstHorasDisponibles.Location = New System.Drawing.Point(19, 51)
-        Me.lstHorasDisponibles.Name = "lstHorasDisponibles"
-        Me.lstHorasDisponibles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lstHorasDisponibles.Size = New System.Drawing.Size(414, 372)
-        Me.lstHorasDisponibles.TabIndex = 0
+        Me.lstHorasDisponiblesDia.DisplayMember = "DescripcionCompleta"
+        Me.lstHorasDisponiblesDia.Enabled = False
+        Me.lstHorasDisponiblesDia.FormattingEnabled = True
+        Me.lstHorasDisponiblesDia.Location = New System.Drawing.Point(14, 66)
+        Me.lstHorasDisponiblesDia.Margin = New System.Windows.Forms.Padding(2)
+        Me.lstHorasDisponiblesDia.Name = "lstHorasDisponiblesDia"
+        Me.lstHorasDisponiblesDia.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
+        Me.lstHorasDisponiblesDia.Size = New System.Drawing.Size(312, 277)
+        Me.lstHorasDisponiblesDia.TabIndex = 0
         '
-        'lblHorasDisponibles
+        'lblHorasDisponiblesDia
         '
-        Me.lblHorasDisponibles.AutoSize = True
-        Me.lblHorasDisponibles.Location = New System.Drawing.Point(16, 32)
-        Me.lblHorasDisponibles.Name = "lblHorasDisponibles"
-        Me.lblHorasDisponibles.Size = New System.Drawing.Size(185, 16)
-        Me.lblHorasDisponibles.TabIndex = 0
-        Me.lblHorasDisponibles.Text = "Posibles Horas Disponibles:"
+        Me.lblHorasDisponiblesDia.AutoSize = True
+        Me.lblHorasDisponiblesDia.Location = New System.Drawing.Point(12, 51)
+        Me.lblHorasDisponiblesDia.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblHorasDisponiblesDia.Name = "lblHorasDisponiblesDia"
+        Me.lblHorasDisponiblesDia.Size = New System.Drawing.Size(122, 13)
+        Me.lblHorasDisponiblesDia.TabIndex = 0
+        Me.lblHorasDisponiblesDia.Text = "Posibles Horas (día):"
         '
-        'frmVoluntarios
+        'tsVoluntarios
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.tsVoluntarios.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.tsVoluntarios.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNuevo, Me.tsbGuardar, Me.tsbEliminar, Me.tsbCancelar})
+        Me.tsVoluntarios.Location = New System.Drawing.Point(0, 0)
+        Me.tsVoluntarios.Name = "tsVoluntarios"
+        Me.tsVoluntarios.Size = New System.Drawing.Size(738, 25)
+        Me.tsVoluntarios.TabIndex = 1
+        Me.tsVoluntarios.Text = "ToolStrip1"
+        '
+        'tsbNuevo
+        '
+        Me.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbNuevo.Name = "tsbNuevo"
+        Me.tsbNuevo.Size = New System.Drawing.Size(46, 22)
+        Me.tsbNuevo.Text = "Nuevo"
+        '
+        'tsbGuardar
+        '
+        Me.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.tsbGuardar.Enabled = False
+        Me.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbGuardar.Name = "tsbGuardar"
+        Me.tsbGuardar.Size = New System.Drawing.Size(53, 22)
+        Me.tsbGuardar.Text = "Guardar"
+        '
+        'tsbEliminar
+        '
+        Me.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.tsbEliminar.Enabled = False
+        Me.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbEliminar.Name = "tsbEliminar"
+        Me.tsbEliminar.Size = New System.Drawing.Size(54, 22)
+        Me.tsbEliminar.Text = "Eliminar"
+        '
+        'tsbCancelar
+        '
+        Me.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.tsbCancelar.Enabled = False
+        Me.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbCancelar.Name = "tsbCancelar"
+        Me.tsbCancelar.Size = New System.Drawing.Size(57, 22)
+        Me.tsbCancelar.Text = "Cancelar"
+        '
+        'FormVoluntario
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 755)
+        Me.ClientSize = New System.Drawing.Size(738, 613)
         Me.Controls.Add(Me.SplitContainerPrincipal)
         Me.Controls.Add(Me.tsVoluntarios)
-        Me.MinimumSize = New System.Drawing.Size(800, 600)
-        Me.Name = "frmVoluntarios"
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(604, 495)
+        Me.Name = "FormVoluntario"
         Me.Text = "Gestión de Voluntarios"
-        Me.tsVoluntarios.ResumeLayout(False)
-        Me.tsVoluntarios.PerformLayout()
         Me.SplitContainerPrincipal.Panel1.ResumeLayout(False)
         Me.SplitContainerPrincipal.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
@@ -667,21 +685,12 @@ Partial Class FormVoluntario
         Me.tpDisponibilidad.ResumeLayout(False)
         Me.gbDisponibilidad.ResumeLayout(False)
         Me.gbDisponibilidad.PerformLayout()
+        Me.tsVoluntarios.ResumeLayout(False)
+        Me.tsVoluntarios.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    '*** Lista ÚNICA de declaraciones WithEvents ***
-    Friend WithEvents tsVoluntarios As ToolStrip
-    Friend WithEvents tsbNuevo As ToolStripButton
-    Friend WithEvents tsbGuardar As ToolStripButton
-    Friend WithEvents tsbEliminar As ToolStripButton
-    Friend WithEvents tsbCancelar As ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents tslBuscar As ToolStripLabel
-    Friend WithEvents tstBuscar As ToolStripTextBox
-    Friend WithEvents tsbBuscar As ToolStripButton
     Friend WithEvents SplitContainerPrincipal As SplitContainer
     Friend WithEvents dgvVoluntarios As DataGridView
     Friend WithEvents tabDetalles As TabControl
@@ -715,12 +724,19 @@ Partial Class FormVoluntario
     Friend WithEvents gbDisponibilidad As GroupBox
     Friend WithEvents btnQuitarDisponibilidad As Button
     Friend WithEvents btnAnadirDisponibilidad As Button
-    Friend WithEvents lstHorasAsignadas As ListBox
-    Friend WithEvents lblHorasAsignadas As Label
-    Friend WithEvents lstHorasDisponibles As ListBox
-    Friend WithEvents lblHorasDisponibles As Label ' Asegurarse que solo está aquí una vez
+    Friend WithEvents lstHorasAsignadasDia As ListBox
+    Friend WithEvents lblHorasAsignadasDia As Label
+    Friend WithEvents lstHorasDisponiblesDia As ListBox
+    Friend WithEvents lblHorasDisponiblesDia As Label
     Friend WithEvents colNif As DataGridViewTextBoxColumn
     Friend WithEvents colNombreCompleto As DataGridViewTextBoxColumn
     Friend WithEvents colCorreo As DataGridViewTextBoxColumn
     Friend WithEvents colCurso As DataGridViewTextBoxColumn
+    Friend WithEvents tsbNuevo As ToolStripButton
+    Friend WithEvents tsbGuardar As ToolStripButton
+    Friend WithEvents tsbEliminar As ToolStripButton
+    Friend WithEvents tsbCancelar As ToolStripButton
+    Friend WithEvents tsVoluntarios As ToolStrip
+    Friend WithEvents lblDiaDisponibilidad As Label
+    Friend WithEvents cmbDiaDisponibilidad As ComboBox
 End Class

@@ -201,7 +201,7 @@ Partial Class FormActividades
         Me.dgvActividades.Location = New System.Drawing.Point(0, 0)
         Me.dgvActividades.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dgvActividades.MultiSelect = False
-        Me.dgvActividades.Name = "dgvActividades"
+        Me.dgvActividades.Name = "dgvOrganizaciones"
         Me.dgvActividades.RowHeadersWidth = 51
         Me.dgvActividades.RowTemplate.Height = 24
         Me.dgvActividades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

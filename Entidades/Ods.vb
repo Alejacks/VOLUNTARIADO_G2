@@ -5,7 +5,7 @@
 
     Public Overrides ReadOnly Property NombreTabla As String = "ODS"
 
-    Public ReadOnly Property Id As Integer
+    Public Property Id As Integer
     Public Property Descripcion As String
 
     Public Sub New(id As Integer, descripcion As String)

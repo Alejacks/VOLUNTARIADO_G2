@@ -81,6 +81,12 @@ Public Class Voluntario
         Return other IsNot Nothing AndAlso other.Nif.Equals(Nif)
     End Function
 
+    Public Overrides Function GetHashCode() As Integer
+        ' El código hash DEBE basarse en las mismas propiedades usadas en Equals.
+        ' En este caso, solo Nif.
+        Return If(Nif IsNot Nothing, Nif.GetHashCode(), 0)
+    End Function
+
     Public Function CompareTo(other As Voluntario) As Integer Implements IComparable(Of Voluntario).CompareTo
         If Me.Equals(other) Then Return 0
         Return Me.DigitosNif.CompareTo(other.DigitosNif)

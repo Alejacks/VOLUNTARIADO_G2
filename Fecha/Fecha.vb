@@ -33,24 +33,6 @@
         End Select
     End Function
 
-    Private Shared Function DiferenciaEnDias(inicio As Fecha, fin As Fecha) As Integer
-        Dim dias As Integer = 0
-        For año As Integer = inicio.Año To fin.Año
-            If año = fin.Año Then
-                dias += fin.DiasHastaFin()
-            ElseIf año = inicio.Año Then
-                dias += inicio.DiasDesdeInicio()
-            Else
-                dias += 365
-                If EsBisiesto(año) Then
-                    dias += 1
-                End If
-            End If
-        Next
-
-        Return dias
-    End Function
-
     Private Function DiasDesdeInicio() As Integer
         Dim dias As Integer = 0
         For mes As Integer = 1 To mes - 1
@@ -237,5 +219,9 @@
             resultado += separador
         Next
         Return resultado.TrimEnd(separador)
+    End Function
+
+    Public Function ADateTime() As DateTime
+        Return New DateTime(_Año, _Mes, _Dia)
     End Function
 End Class

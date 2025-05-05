@@ -48,14 +48,14 @@ Public Class FormActividades
 
     Private _ValidacionDeFilaActiva As Boolean = False
 
-    Private Sub FormActividades_Load(Optional sender As Object = Nothing, Optional e As EventArgs = Nothing) Handles MyBase.Load
+    Private Sub FormActividades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         _Conector.Abrir()
-        Using registroCursos As SqlDataReader = _Conector.EjecutarConsultaMutilple(_ConsultaCursos)
-            While registroCursos.Read()
+        Using registrosCursos As SqlDataReader = _Conector.EjecutarConsultaMutilple(_ConsultaCursos)
+            While registrosCursos.Read()
                 _GestorCursos.Insertar(New Curso(
-                                   registroCursos("ID"),
-                                    registroCursos("DESCRIPCION")
+                                    registrosCursos("ID"),
+                                    registrosCursos("DESCRIPCION")
                                     ))
             End While
         End Using
@@ -132,7 +132,6 @@ Public Class FormActividades
             End While
         End Using
         _Conector.Cerrar()
-
 
         Me._GestorOriginal.Elementos.Sort()
         Me._GestorNuevo = _GestorOriginal.Clonar()
@@ -269,7 +268,7 @@ Public Class FormActividades
         RemoveHandler cmbTecnicidad.SelectedValueChanged, AddressOf AlCambiarContenido
     End Sub
 
-    Private Sub NuevaFila() Handles tsbNuevo.Click
+    Private Sub NuevaFila(sender As Object, e As EventArgs) Handles tsbNuevo.Click
         _CambiosGuardados = False
         If EntidadValida() Then
             _GestorNuevo.InsertarElementoVacio()
@@ -283,7 +282,7 @@ Public Class FormActividades
                 AlSeleccionarFila(dgvActividades.Rows(0).Cells(0), Nothing)
             End If
         Else
-            MessageBox.Show("Termina de agregar la actual actividad antes de añadir una nueva.")
+            MessageBox.Show("Termina de modificar la actual actividad antes de añadir una nueva.")
         End If
     End Sub
 
@@ -347,7 +346,7 @@ Public Class FormActividades
         End If
     End Sub
 
-    Private Sub LimpiarFilaFacia()
+    Private Sub LimpiarFilaVacia()
         _GestorNuevo.LimpiarElementoVacio()
     End Sub
 
@@ -414,7 +413,7 @@ Public Class FormActividades
                 TryCast(cmbTecnicidad.SelectedItem, Curso)
                 )
             EliminarHandlerCambioDeFila()
-            LimpiarFilaFacia()
+            LimpiarFilaVacia()
             _GestorNuevo.Elementos.Add(actividadSeleccionada)
             If Not _ValidacionDeFilaActiva Then
                 RecargarTabla()
@@ -479,10 +478,9 @@ Public Class FormActividades
     End Sub
 
     Private Function ComprobarCamposObligatorios() As Boolean
+        If txtNombreActividad.Text = "" OrElse String.IsNullOrWhiteSpace(txtNombreActividad.Text) Then Return False
         For Each control As Control In _ControlesObligatorios
-            If txtNombreActividad.Text = "" OrElse String.IsNullOrWhiteSpace(txtNombreActividad.Text) Then
-                Return False
-            ElseIf TypeOf control Is ComboBox Then
+            If TypeOf control Is ComboBox Then
                 If CType(control, ComboBox).SelectedIndex = -1 Then
                     Return False
                 End If
@@ -676,6 +674,7 @@ Public Class FormActividades
                 For Each cambio As String In gestorCambios.Sentencias
                     _Conector.EjecutarModificacion(cambio)
                 Next
+                _Conector.Cerrar()
                 MessageBox.Show("Cambios guardados correctamente. A continuación se cerrará el formulario", "Guardado")
                 _CambiosGuardados = True
                 Me.Close()
@@ -704,6 +703,7 @@ Public Class FormActividades
                     For Each cambio As String In gestorCambios.Sentencias
                         _Conector.EjecutarModificacion(cambio)
                     Next
+                    _Conector.Cerrar()
                     _CambiosGuardados = True
                     Me.Close()
                 End If
@@ -714,5 +714,9 @@ Public Class FormActividades
                 e.Cancel = True
             End If
         End If
+    End Sub
+
+    Private Sub dgvActividades_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvActividades.CellContentClick
+
     End Sub
 End Class

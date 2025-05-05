@@ -31,9 +31,6 @@ Partial Class FormOrganizacion
         Me.tsbEliminar = New System.Windows.Forms.ToolStripButton()
         Me.tsbCancelar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tslBuscar = New System.Windows.Forms.ToolStripLabel()
-        Me.tstBuscar = New System.Windows.Forms.ToolStripTextBox()
-        Me.tsbBuscar = New System.Windows.Forms.ToolStripButton()
         Me.SplitContainerPrincipal = New System.Windows.Forms.SplitContainer()
         Me.dgvOrganizaciones = New System.Windows.Forms.DataGridView()
         Me.colId = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,6 +50,7 @@ Partial Class FormOrganizacion
         Me.lblNombreOrg = New System.Windows.Forms.Label()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.lblId = New System.Windows.Forms.Label()
+        Me._ControlesObligatorios = New Control() {Me.txtNombreOrg, Me.txtRespNombre, Me.txtRespApellido1}
         Me.tsOrganizaciones.SuspendLayout()
         CType(Me.SplitContainerPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerPrincipal.Panel1.SuspendLayout()
@@ -65,10 +63,10 @@ Partial Class FormOrganizacion
         'tsOrganizaciones
         '
         Me.tsOrganizaciones.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.tsOrganizaciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNuevo, Me.tsbGuardar, Me.tsbEliminar, Me.tsbCancelar, Me.ToolStripSeparator1, Me.tslBuscar, Me.tstBuscar, Me.tsbBuscar})
+        Me.tsOrganizaciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNuevo, Me.tsbGuardar, Me.tsbEliminar, Me.tsbCancelar, Me.ToolStripSeparator1})
         Me.tsOrganizaciones.Location = New System.Drawing.Point(0, 0)
         Me.tsOrganizaciones.Name = "tsOrganizaciones"
-        Me.tsOrganizaciones.Size = New System.Drawing.Size(984, 27)
+        Me.tsOrganizaciones.Size = New System.Drawing.Size(738, 25)
         Me.tsOrganizaciones.TabIndex = 2
         Me.tsOrganizaciones.Text = "ToolStrip1"
         '
@@ -77,16 +75,16 @@ Partial Class FormOrganizacion
         Me.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbNuevo.Name = "tsbNuevo"
-        Me.tsbNuevo.Size = New System.Drawing.Size(56, 24)
+        Me.tsbNuevo.Size = New System.Drawing.Size(46, 22)
         Me.tsbNuevo.Text = "Nuevo"
         '
         'tsbGuardar
         '
         Me.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.tsbGuardar.Enabled = False
+        Me.tsbGuardar.Enabled = True
         Me.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbGuardar.Name = "tsbGuardar"
-        Me.tsbGuardar.Size = New System.Drawing.Size(66, 24)
+        Me.tsbGuardar.Size = New System.Drawing.Size(53, 22)
         Me.tsbGuardar.Text = "Guardar"
         '
         'tsbEliminar
@@ -95,48 +93,28 @@ Partial Class FormOrganizacion
         Me.tsbEliminar.Enabled = False
         Me.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbEliminar.Name = "tsbEliminar"
-        Me.tsbEliminar.Size = New System.Drawing.Size(67, 24)
+        Me.tsbEliminar.Size = New System.Drawing.Size(54, 22)
         Me.tsbEliminar.Text = "Eliminar"
         '
         'tsbCancelar
         '
         Me.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.tsbCancelar.Enabled = False
+        Me.tsbCancelar.Enabled = True
         Me.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbCancelar.Name = "tsbCancelar"
-        Me.tsbCancelar.Size = New System.Drawing.Size(70, 24)
+        Me.tsbCancelar.Size = New System.Drawing.Size(57, 22)
         Me.tsbCancelar.Text = "Cancelar"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
-        '
-        'tslBuscar
-        '
-        Me.tslBuscar.Name = "tslBuscar"
-        Me.tslBuscar.Size = New System.Drawing.Size(55, 24)
-        Me.tslBuscar.Text = "Buscar:"
-        '
-        'tstBuscar
-        '
-        Me.tstBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tstBuscar.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.tstBuscar.Name = "tstBuscar"
-        Me.tstBuscar.Size = New System.Drawing.Size(200, 27)
-        '
-        'tsbBuscar
-        '
-        Me.tsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbBuscar.Name = "tsbBuscar"
-        Me.tsbBuscar.Size = New System.Drawing.Size(56, 24)
-        Me.tsbBuscar.Text = "Buscar"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'SplitContainerPrincipal
         '
         Me.SplitContainerPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerPrincipal.Location = New System.Drawing.Point(0, 27)
+        Me.SplitContainerPrincipal.Location = New System.Drawing.Point(0, 25)
+        Me.SplitContainerPrincipal.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainerPrincipal.Name = "SplitContainerPrincipal"
         Me.SplitContainerPrincipal.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -147,18 +125,19 @@ Partial Class FormOrganizacion
         'SplitContainerPrincipal.Panel2
         '
         Me.SplitContainerPrincipal.Panel2.Controls.Add(Me.gbDetallesOrganizacion)
-        Me.SplitContainerPrincipal.Size = New System.Drawing.Size(984, 428)
-        Me.SplitContainerPrincipal.SplitterDistance = 210
+        Me.SplitContainerPrincipal.Size = New System.Drawing.Size(738, 350)
+        Me.SplitContainerPrincipal.SplitterDistance = 171
+        Me.SplitContainerPrincipal.SplitterWidth = 3
         Me.SplitContainerPrincipal.TabIndex = 3
         '
         'dgvOrganizaciones
         '
-        Me.dgvOrganizaciones.AllowUserToAddRows = False
-        Me.dgvOrganizaciones.AllowUserToDeleteRows = False
+        Me.dgvOrganizaciones.AllowUserToAddRows = True
+        Me.dgvOrganizaciones.AllowUserToDeleteRows = True
         Me.dgvOrganizaciones.AllowUserToResizeRows = False
+        Me.dgvOrganizaciones.AutoGenerateColumns = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvOrganizaciones.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvOrganizaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -179,13 +158,14 @@ Partial Class FormOrganizacion
         Me.dgvOrganizaciones.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvOrganizaciones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvOrganizaciones.Location = New System.Drawing.Point(0, 0)
+        Me.dgvOrganizaciones.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvOrganizaciones.MultiSelect = False
         Me.dgvOrganizaciones.Name = "dgvOrganizaciones"
         Me.dgvOrganizaciones.ReadOnly = True
         Me.dgvOrganizaciones.RowHeadersWidth = 51
         Me.dgvOrganizaciones.RowTemplate.Height = 24
         Me.dgvOrganizaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOrganizaciones.Size = New System.Drawing.Size(984, 210)
+        Me.dgvOrganizaciones.Size = New System.Drawing.Size(738, 171)
         Me.dgvOrganizaciones.TabIndex = 0
         '
         'colId
@@ -208,7 +188,7 @@ Partial Class FormOrganizacion
         '
         'colResponsable
         '
-        Me.colResponsable.DataPropertyName = "NombreResponsableCompleto" ' Necesitarás añadir esta propiedad a la entidad Organizacion
+        Me.colResponsable.DataPropertyName = "NombreResponsableCompleto"
         Me.colResponsable.HeaderText = "Responsable"
         Me.colResponsable.MinimumWidth = 6
         Me.colResponsable.Name = "colResponsable"
@@ -216,7 +196,7 @@ Partial Class FormOrganizacion
         '
         'colFechaRegistro
         '
-        Me.colFechaRegistro.DataPropertyName = "FechaRegistro" ' Mostrará el .ToString() de la Fecha
+        Me.colFechaRegistro.DataPropertyName = "FechaRegistro"
         Me.colFechaRegistro.FillWeight = 80.0!
         Me.colFechaRegistro.HeaderText = "Fecha Registro"
         Me.colFechaRegistro.MinimumWidth = 6
@@ -240,9 +220,11 @@ Partial Class FormOrganizacion
         Me.gbDetallesOrganizacion.Controls.Add(Me.lblNombreOrg)
         Me.gbDetallesOrganizacion.Controls.Add(Me.txtId)
         Me.gbDetallesOrganizacion.Controls.Add(Me.lblId)
-        Me.gbDetallesOrganizacion.Location = New System.Drawing.Point(12, 15)
+        Me.gbDetallesOrganizacion.Location = New System.Drawing.Point(9, 12)
+        Me.gbDetallesOrganizacion.Margin = New System.Windows.Forms.Padding(2)
         Me.gbDetallesOrganizacion.Name = "gbDetallesOrganizacion"
-        Me.gbDetallesOrganizacion.Size = New System.Drawing.Size(960, 187)
+        Me.gbDetallesOrganizacion.Padding = New System.Windows.Forms.Padding(2)
+        Me.gbDetallesOrganizacion.Size = New System.Drawing.Size(720, 155)
         Me.gbDetallesOrganizacion.TabIndex = 0
         Me.gbDetallesOrganizacion.TabStop = False
         Me.gbDetallesOrganizacion.Text = "Detalles de la Organización"
@@ -250,17 +232,19 @@ Partial Class FormOrganizacion
         'dtpFechaRegistro
         '
         Me.dtpFechaRegistro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaRegistro.Location = New System.Drawing.Point(148, 141)
+        Me.dtpFechaRegistro.Location = New System.Drawing.Point(111, 115)
+        Me.dtpFechaRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.dtpFechaRegistro.Name = "dtpFechaRegistro"
-        Me.dtpFechaRegistro.Size = New System.Drawing.Size(130, 22)
+        Me.dtpFechaRegistro.Size = New System.Drawing.Size(98, 20)
         Me.dtpFechaRegistro.TabIndex = 5
         '
         'lblFechaRegistro
         '
         Me.lblFechaRegistro.AutoSize = True
-        Me.lblFechaRegistro.Location = New System.Drawing.Point(16, 144)
+        Me.lblFechaRegistro.Location = New System.Drawing.Point(12, 117)
+        Me.lblFechaRegistro.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFechaRegistro.Name = "lblFechaRegistro"
-        Me.lblFechaRegistro.Size = New System.Drawing.Size(101, 16)
+        Me.lblFechaRegistro.Size = New System.Drawing.Size(82, 13)
         Me.lblFechaRegistro.TabIndex = 10
         Me.lblFechaRegistro.Text = "Fecha Registro:"
         '
@@ -268,33 +252,37 @@ Partial Class FormOrganizacion
         '
         Me.txtRespApellido2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtRespApellido2.Location = New System.Drawing.Point(605, 106)
+        Me.txtRespApellido2.Location = New System.Drawing.Point(454, 86)
+        Me.txtRespApellido2.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRespApellido2.Name = "txtRespApellido2"
-        Me.txtRespApellido2.Size = New System.Drawing.Size(335, 22)
+        Me.txtRespApellido2.Size = New System.Drawing.Size(252, 20)
         Me.txtRespApellido2.TabIndex = 4
         '
         'lblRespApellido2
         '
         Me.lblRespApellido2.AutoSize = True
-        Me.lblRespApellido2.Location = New System.Drawing.Point(475, 109)
+        Me.lblRespApellido2.Location = New System.Drawing.Point(356, 89)
+        Me.lblRespApellido2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblRespApellido2.Name = "lblRespApellido2"
-        Me.lblRespApellido2.Size = New System.Drawing.Size(124, 16)
+        Me.lblRespApellido2.Size = New System.Drawing.Size(87, 13)
         Me.lblRespApellido2.TabIndex = 8
         Me.lblRespApellido2.Text = "Resp. Apellido 2:"
         '
         'txtRespApellido1
         '
-        Me.txtRespApellido1.Location = New System.Drawing.Point(148, 106)
+        Me.txtRespApellido1.Location = New System.Drawing.Point(111, 86)
+        Me.txtRespApellido1.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRespApellido1.Name = "txtRespApellido1"
-        Me.txtRespApellido1.Size = New System.Drawing.Size(290, 22)
+        Me.txtRespApellido1.Size = New System.Drawing.Size(218, 20)
         Me.txtRespApellido1.TabIndex = 3
         '
         'lblRespApellido1
         '
         Me.lblRespApellido1.AutoSize = True
-        Me.lblRespApellido1.Location = New System.Drawing.Point(16, 109)
+        Me.lblRespApellido1.Location = New System.Drawing.Point(12, 89)
+        Me.lblRespApellido1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblRespApellido1.Name = "lblRespApellido1"
-        Me.lblRespApellido1.Size = New System.Drawing.Size(124, 16)
+        Me.lblRespApellido1.Size = New System.Drawing.Size(87, 13)
         Me.lblRespApellido1.TabIndex = 6
         Me.lblRespApellido1.Text = "Resp. Apellido 1:"
         '
@@ -302,17 +290,19 @@ Partial Class FormOrganizacion
         '
         Me.txtRespNombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtRespNombre.Location = New System.Drawing.Point(148, 73)
+        Me.txtRespNombre.Location = New System.Drawing.Point(111, 59)
+        Me.txtRespNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRespNombre.Name = "txtRespNombre"
-        Me.txtRespNombre.Size = New System.Drawing.Size(792, 22)
+        Me.txtRespNombre.Size = New System.Drawing.Size(595, 20)
         Me.txtRespNombre.TabIndex = 2
         '
         'lblRespNombre
         '
         Me.lblRespNombre.AutoSize = True
-        Me.lblRespNombre.Location = New System.Drawing.Point(16, 76)
+        Me.lblRespNombre.Location = New System.Drawing.Point(12, 62)
+        Me.lblRespNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblRespNombre.Name = "lblRespNombre"
-        Me.lblRespNombre.Size = New System.Drawing.Size(106, 16)
+        Me.lblRespNombre.Size = New System.Drawing.Size(78, 13)
         Me.lblRespNombre.TabIndex = 4
         Me.lblRespNombre.Text = "Resp. Nombre:"
         '
@@ -320,47 +310,52 @@ Partial Class FormOrganizacion
         '
         Me.txtNombreOrg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNombreOrg.Location = New System.Drawing.Point(310, 40)
+        Me.txtNombreOrg.Location = New System.Drawing.Point(232, 32)
+        Me.txtNombreOrg.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNombreOrg.Name = "txtNombreOrg"
-        Me.txtNombreOrg.Size = New System.Drawing.Size(630, 22)
+        Me.txtNombreOrg.Size = New System.Drawing.Size(474, 20)
         Me.txtNombreOrg.TabIndex = 1
         '
         'lblNombreOrg
         '
         Me.lblNombreOrg.AutoSize = True
-        Me.lblNombreOrg.Location = New System.Drawing.Point(170, 43)
+        Me.lblNombreOrg.Location = New System.Drawing.Point(128, 35)
+        Me.lblNombreOrg.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblNombreOrg.Name = "lblNombreOrg"
-        Me.lblNombreOrg.Size = New System.Drawing.Size(134, 16)
+        Me.lblNombreOrg.Size = New System.Drawing.Size(112, 13)
         Me.lblNombreOrg.TabIndex = 2
         Me.lblNombreOrg.Text = "Nombre Organización:"
         '
         'txtId
         '
-        Me.txtId.Location = New System.Drawing.Point(45, 40)
+        Me.txtId.Location = New System.Drawing.Point(34, 32)
+        Me.txtId.Margin = New System.Windows.Forms.Padding(2)
         Me.txtId.Name = "txtId"
         Me.txtId.ReadOnly = True
-        Me.txtId.Size = New System.Drawing.Size(100, 22)
+        Me.txtId.Size = New System.Drawing.Size(76, 20)
         Me.txtId.TabIndex = 0
         Me.txtId.TabStop = False
         '
         'lblId
         '
         Me.lblId.AutoSize = True
-        Me.lblId.Location = New System.Drawing.Point(16, 43)
+        Me.lblId.Location = New System.Drawing.Point(12, 35)
+        Me.lblId.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblId.Name = "lblId"
-        Me.lblId.Size = New System.Drawing.Size(23, 16)
+        Me.lblId.Size = New System.Drawing.Size(21, 13)
         Me.lblId.TabIndex = 0
         Me.lblId.Text = "ID:"
         '
-        'frmOrganizaciones
+        'FormOrganizacion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 455)
+        Me.ClientSize = New System.Drawing.Size(738, 375)
         Me.Controls.Add(Me.SplitContainerPrincipal)
         Me.Controls.Add(Me.tsOrganizaciones)
-        Me.MinimumSize = New System.Drawing.Size(800, 500)
-        Me.Name = "frmOrganizaciones"
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(604, 414)
+        Me.Name = "FormOrganizacion"
         Me.Text = "Gestión de Organizaciones"
         Me.tsOrganizaciones.ResumeLayout(False)
         Me.tsOrganizaciones.PerformLayout()
@@ -382,9 +377,6 @@ Partial Class FormOrganizacion
     Friend WithEvents tsbEliminar As ToolStripButton
     Friend WithEvents tsbCancelar As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents tslBuscar As ToolStripLabel
-    Friend WithEvents tstBuscar As ToolStripTextBox
-    Friend WithEvents tsbBuscar As ToolStripButton
     Friend WithEvents SplitContainerPrincipal As SplitContainer
     Friend WithEvents dgvOrganizaciones As DataGridView
     Friend WithEvents gbDetallesOrganizacion As GroupBox
@@ -404,4 +396,5 @@ Partial Class FormOrganizacion
     Friend WithEvents colNombreOrg As DataGridViewTextBoxColumn
     Friend WithEvents colResponsable As DataGridViewTextBoxColumn
     Friend WithEvents colFechaRegistro As DataGridViewTextBoxColumn
+    Friend _ControlesObligatorios As Control()
 End Class

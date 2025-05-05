@@ -30,10 +30,6 @@ Partial Class FormOds
         Me.tsbGuardar = New System.Windows.Forms.ToolStripButton()
         Me.tsbEliminar = New System.Windows.Forms.ToolStripButton()
         Me.tsbCancelar = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tslBuscar = New System.Windows.Forms.ToolStripLabel()
-        Me.tstBuscar = New System.Windows.Forms.ToolStripTextBox()
-        Me.tsbBuscar = New System.Windows.Forms.ToolStripButton()
         Me.SplitContainerPrincipal = New System.Windows.Forms.SplitContainer()
         Me.dgvOds = New System.Windows.Forms.DataGridView()
         Me.colId = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,10 +51,10 @@ Partial Class FormOds
         'tsOds
         '
         Me.tsOds.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.tsOds.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNuevo, Me.tsbGuardar, Me.tsbEliminar, Me.tsbCancelar, Me.ToolStripSeparator1, Me.tslBuscar, Me.tstBuscar, Me.tsbBuscar})
+        Me.tsOds.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNuevo, Me.tsbGuardar, Me.tsbEliminar, Me.tsbCancelar})
         Me.tsOds.Location = New System.Drawing.Point(0, 0)
         Me.tsOds.Name = "tsOds"
-        Me.tsOds.Size = New System.Drawing.Size(800, 27)
+        Me.tsOds.Size = New System.Drawing.Size(600, 25)
         Me.tsOds.TabIndex = 5
         Me.tsOds.Text = "ToolStrip1"
         '
@@ -67,20 +63,17 @@ Partial Class FormOds
         Me.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbNuevo.Name = "tsbNuevo"
-        Me.tsbNuevo.Size = New System.Drawing.Size(56, 24)
+        Me.tsbNuevo.Size = New System.Drawing.Size(46, 22)
         Me.tsbNuevo.Text = "Nuevo"
-        ' *** TODO: Considerar deshabilitar o ocultar tsbNuevo, tsbGuardar, tsbEliminar para ODS ***
-        ' Me.tsbNuevo.Visible = False
         '
         'tsbGuardar
         '
         Me.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.tsbGuardar.Enabled = False
+        Me.tsbGuardar.Enabled = True
         Me.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbGuardar.Name = "tsbGuardar"
-        Me.tsbGuardar.Size = New System.Drawing.Size(66, 24)
+        Me.tsbGuardar.Size = New System.Drawing.Size(53, 22)
         Me.tsbGuardar.Text = "Guardar"
-        ' Me.tsbGuardar.Visible = False
         '
         'tsbEliminar
         '
@@ -88,51 +81,23 @@ Partial Class FormOds
         Me.tsbEliminar.Enabled = False
         Me.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbEliminar.Name = "tsbEliminar"
-        Me.tsbEliminar.Size = New System.Drawing.Size(67, 24)
+        Me.tsbEliminar.Size = New System.Drawing.Size(54, 22)
         Me.tsbEliminar.Text = "Eliminar"
-        ' Me.tsbEliminar.Visible = False
         '
         'tsbCancelar
         '
         Me.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.tsbCancelar.Enabled = False
+        Me.tsbCancelar.Enabled = True
         Me.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbCancelar.Name = "tsbCancelar"
-        Me.tsbCancelar.Size = New System.Drawing.Size(70, 24)
+        Me.tsbCancelar.Size = New System.Drawing.Size(57, 22)
         Me.tsbCancelar.Text = "Cancelar"
-        ' Me.tsbCancelar.Visible = False ' Ocultar si no hay edición
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
-        ' Me.ToolStripSeparator1.Visible = False ' Ocultar si no hay botones de edición
-        '
-        'tslBuscar
-        '
-        Me.tslBuscar.Name = "tslBuscar"
-        Me.tslBuscar.Size = New System.Drawing.Size(55, 24)
-        Me.tslBuscar.Text = "Buscar:"
-        '
-        'tstBuscar
-        '
-        Me.tstBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tstBuscar.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.tstBuscar.Name = "tstBuscar"
-        Me.tstBuscar.Size = New System.Drawing.Size(150, 27)
-        '
-        'tsbBuscar
-        '
-        Me.tsbBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.tsbBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbBuscar.Name = "tsbBuscar"
-        Me.tsbBuscar.Size = New System.Drawing.Size(56, 24)
-        Me.tsbBuscar.Text = "Buscar"
         '
         'SplitContainerPrincipal
         '
         Me.SplitContainerPrincipal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerPrincipal.Location = New System.Drawing.Point(0, 27)
+        Me.SplitContainerPrincipal.Location = New System.Drawing.Point(0, 25)
+        Me.SplitContainerPrincipal.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainerPrincipal.Name = "SplitContainerPrincipal"
         Me.SplitContainerPrincipal.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -143,18 +108,19 @@ Partial Class FormOds
         'SplitContainerPrincipal.Panel2
         '
         Me.SplitContainerPrincipal.Panel2.Controls.Add(Me.gbDetallesOds)
-        Me.SplitContainerPrincipal.Size = New System.Drawing.Size(800, 423)
-        Me.SplitContainerPrincipal.SplitterDistance = 240
+        Me.SplitContainerPrincipal.Size = New System.Drawing.Size(600, 341)
+        Me.SplitContainerPrincipal.SplitterDistance = 193
+        Me.SplitContainerPrincipal.SplitterWidth = 3
         Me.SplitContainerPrincipal.TabIndex = 6
         '
         'dgvOds
         '
-        Me.dgvOds.AllowUserToAddRows = False
-        Me.dgvOds.AllowUserToDeleteRows = False
+        Me.dgvOds.AllowUserToAddRows = True
+        Me.dgvOds.AllowUserToDeleteRows = True
         Me.dgvOds.AllowUserToResizeRows = False
+        Me.dgvOds.AutoGenerateColumns = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvOds.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvOds.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -175,13 +141,14 @@ Partial Class FormOds
         Me.dgvOds.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvOds.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvOds.Location = New System.Drawing.Point(0, 0)
+        Me.dgvOds.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvOds.MultiSelect = False
         Me.dgvOds.Name = "dgvOds"
         Me.dgvOds.ReadOnly = True
         Me.dgvOds.RowHeadersWidth = 51
         Me.dgvOds.RowTemplate.Height = 24
         Me.dgvOds.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOds.Size = New System.Drawing.Size(800, 240)
+        Me.dgvOds.Size = New System.Drawing.Size(600, 193)
         Me.dgvOds.TabIndex = 0
         '
         'colId
@@ -210,9 +177,11 @@ Partial Class FormOds
         Me.gbDetallesOds.Controls.Add(Me.lblDescripcion)
         Me.gbDetallesOds.Controls.Add(Me.txtId)
         Me.gbDetallesOds.Controls.Add(Me.lblId)
-        Me.gbDetallesOds.Location = New System.Drawing.Point(12, 15)
+        Me.gbDetallesOds.Location = New System.Drawing.Point(9, 12)
+        Me.gbDetallesOds.Margin = New System.Windows.Forms.Padding(2)
         Me.gbDetallesOds.Name = "gbDetallesOds"
-        Me.gbDetallesOds.Size = New System.Drawing.Size(776, 142)
+        Me.gbDetallesOds.Padding = New System.Windows.Forms.Padding(2)
+        Me.gbDetallesOds.Size = New System.Drawing.Size(582, 116)
         Me.gbDetallesOds.TabIndex = 0
         Me.gbDetallesOds.TabStop = False
         Me.gbDetallesOds.Text = "Detalles del ODS"
@@ -221,49 +190,52 @@ Partial Class FormOds
         '
         Me.txtDescripcion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDescripcion.Location = New System.Drawing.Point(115, 73)
+        Me.txtDescripcion.Location = New System.Drawing.Point(86, 59)
+        Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(641, 22)
+        Me.txtDescripcion.Size = New System.Drawing.Size(482, 20)
         Me.txtDescripcion.TabIndex = 1
-        ' *** TODO: Considerar poner ReadOnly = True si los ODS no son editables ***
-        ' Me.txtDescripcion.ReadOnly = True
         '
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(16, 76)
+        Me.lblDescripcion.Location = New System.Drawing.Point(12, 62)
+        Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(82, 16)
+        Me.lblDescripcion.Size = New System.Drawing.Size(66, 13)
         Me.lblDescripcion.TabIndex = 2
         Me.lblDescripcion.Text = "Descripción:"
         '
         'txtId
         '
-        Me.txtId.Location = New System.Drawing.Point(115, 40)
+        Me.txtId.Location = New System.Drawing.Point(86, 32)
+        Me.txtId.Margin = New System.Windows.Forms.Padding(2)
         Me.txtId.Name = "txtId"
-        Me.txtId.ReadOnly = True ' ID de ODS nunca se edita manualmente
-        Me.txtId.Size = New System.Drawing.Size(100, 22)
+        Me.txtId.ReadOnly = False
+        Me.txtId.Size = New System.Drawing.Size(76, 20)
         Me.txtId.TabIndex = 0
         Me.txtId.TabStop = False
         '
         'lblId
         '
         Me.lblId.AutoSize = True
-        Me.lblId.Location = New System.Drawing.Point(16, 43)
+        Me.lblId.Location = New System.Drawing.Point(12, 35)
+        Me.lblId.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblId.Name = "lblId"
-        Me.lblId.Size = New System.Drawing.Size(23, 16)
+        Me.lblId.Size = New System.Drawing.Size(21, 13)
         Me.lblId.TabIndex = 0
         Me.lblId.Text = "ID:"
         '
-        'frmOds
+        'FormOds
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(600, 366)
         Me.Controls.Add(Me.SplitContainerPrincipal)
         Me.Controls.Add(Me.tsOds)
-        Me.MinimumSize = New System.Drawing.Size(600, 400)
-        Me.Name = "frmOds"
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(454, 332)
+        Me.Name = "FormOds"
         Me.Text = "Gestión de ODS"
         Me.tsOds.ResumeLayout(False)
         Me.tsOds.PerformLayout()
@@ -284,10 +256,6 @@ Partial Class FormOds
     Friend WithEvents tsbGuardar As ToolStripButton
     Friend WithEvents tsbEliminar As ToolStripButton
     Friend WithEvents tsbCancelar As ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents tslBuscar As ToolStripLabel
-    Friend WithEvents tstBuscar As ToolStripTextBox
-    Friend WithEvents tsbBuscar As ToolStripButton
     Friend WithEvents SplitContainerPrincipal As SplitContainer
     Friend WithEvents dgvOds As DataGridView
     Friend WithEvents gbDetallesOds As GroupBox
