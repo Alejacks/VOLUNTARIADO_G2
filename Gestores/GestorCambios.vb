@@ -5,12 +5,13 @@ Public Class GestorCambios(Of T As EntidadBD)
 
     Private ReadOnly _GestorOriginal As GestorEntidad(Of T)
     Private ReadOnly _GestorNuevo As GestorEntidad(Of T)
-    Public ReadOnly Property CambiosRealizados As New List(Of CambioBD)
+    Private ReadOnly Property _CambiosRealizados As New List(Of CambioBD)
     Public ReadOnly Property Sentencias As List(Of String)
         Get
             Dim sentenciasAProcesar As New List(Of String)
-            For Each cambio As CambioBD In CambiosRealizados
-                sentenciasAProcesar.Add(cambio.CodigoSQL)
+            For Each cambio As CambioBD In _CambiosRealizados
+                Dim codigo As String = cambio.CodigoSQL
+                If codigo IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(codigo) Then sentenciasAProcesar.Add(codigo)
             Next
             Return sentenciasAProcesar
         End Get
@@ -27,16 +28,16 @@ Public Class GestorCambios(Of T As EntidadBD)
                 Dim elementoAntiguo As T = elemento
                 Dim elementoNuevo As T = _GestorNuevo.Elementos(_GestorNuevo.Elementos.IndexOf(elemento))
                 If Not elementoAntiguo.ExactamenteIgual(elementoNuevo) Then
-                    CambiosRealizados.Add(New Update(elementoAntiguo, elementoNuevo))
+                    _CambiosRealizados.Add(New Update(elementoAntiguo, elementoNuevo))
                 End If
             Else
-                CambiosRealizados.Add(New Delete(elemento))
+                _CambiosRealizados.Add(New Delete(elemento))
             End If
         Next
 
         For Each elemento As T In _GestorNuevo.Elementos
             If Not _GestorOriginal.Elementos.Contains(elemento) Then
-                CambiosRealizados.Add(New Insert(elemento))
+                _CambiosRealizados.Add(New Insert(elemento))
             End If
         Next
     End Sub

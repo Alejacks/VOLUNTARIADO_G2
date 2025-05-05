@@ -33,8 +33,12 @@ Public Class Organizacion
         Me.FechaRegistro = fechaRegistro
     End Sub
 
+    Public Overrides Function Clonar() As EntidadBD
+        Return New Organizacion(Me.Id, Me.Nombre, Me.NombreResponsable, Me.Apellido1Responsable, Me.Apellido2Responsable, Me.FechaRegistro)
+    End Function
+
     Public Overrides Function ToString() As String
-        Return Nombre
+        Return If(Me.Nombre Is Nothing, "", Me.Nombre)
     End Function
 
     Public Overrides Function Equals(obj As Object) As Boolean
@@ -46,20 +50,34 @@ Public Class Organizacion
         Return other IsNot Nothing AndAlso other.Id.Equals(Id)
     End Function
 
+    Public Overloads Function Equals(id As Integer) As Boolean
+        Return Me.Id.Equals(id)
+    End Function
+
     Public Function CompareTo(other As Organizacion) As Integer Implements IComparable(Of Organizacion).CompareTo
         If Me.Equals(other) Then Return 0
         Return Id.CompareTo(other.Id)
     End Function
 
-    Public Overrides Function CamposConValores() As Dictionary(Of String, String)
-        Return New Dictionary(Of String, String) From {
-            {"ID", Me.Id},
-            {"NOMBRE", $"'{Me.Nombre}'"},
-            {"NOMBRE_RESPONSABLE", $"'{Me.NombreResponsable}'"},
-            {"APELLIDO1_RESPONSABLE", $"'{Me.Apellido1Responsable}'"},
-            {"APELLIDO2_RESPONSABLE", If(Me.Apellido2Responsable IsNot Nothing AndAlso Not String.IsNullOrEmpty(Me.Apellido2Responsable), $"'{Me.Apellido2Responsable}'", "NULL")},
-            {"FECHA_REGISTRO", $"'{Me.FechaRegistro:a-m-d}'"}
-        }
+    Public Overrides Function CamposConValores(Optional aptoParaInsert As Boolean = False) As Dictionary(Of String, String)
+        If aptoParaInsert Then
+            Return New Dictionary(Of String, String) From {
+                {"NOMBRE", $"'{Me.Nombre}'"},
+                {"NOMBRE_RESPONSABLE", $"'{Me.NombreResponsable}'"},
+                {"APELLIDO1_RESPONSABLE", $"'{Me.Apellido1Responsable}'"},
+                {"APELLIDO2_RESPONSABLE", If(Me.Apellido2Responsable IsNot Nothing AndAlso Not String.IsNullOrEmpty(Me.Apellido2Responsable), $"'{Me.Apellido2Responsable}'", "NULL")},
+                {"FECHA_REGISTRO", $"'{Me.FechaRegistro:a-m-d}'"}
+            }
+        Else
+            Return New Dictionary(Of String, String) From {
+                {"ID", Me.Id},
+                {"NOMBRE", $"'{Me.Nombre}'"},
+                {"NOMBRE_RESPONSABLE", $"'{Me.NombreResponsable}'"},
+                {"APELLIDO1_RESPONSABLE", $"'{Me.Apellido1Responsable}'"},
+                {"APELLIDO2_RESPONSABLE", If(Me.Apellido2Responsable IsNot Nothing AndAlso Not String.IsNullOrEmpty(Me.Apellido2Responsable), $"'{Me.Apellido2Responsable}'", "NULL")},
+                {"FECHA_REGISTRO", $"'{Me.FechaRegistro:a-m-d}'"}
+            }
+        End If
     End Function
 
     Public Overrides Function ClavePrimaria() As String()

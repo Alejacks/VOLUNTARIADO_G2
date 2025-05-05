@@ -24,7 +24,7 @@ Public Class Conector
         Return _CadenaConexion.ToString()
     End Function
 
-    Private Function Abrir() As Boolean
+    Public Function Abrir() As Boolean
         Try
             If Conexion.State = ConnectionState.Closed Then
                 Conexion.Open()
@@ -35,7 +35,7 @@ Public Class Conector
         End Try
     End Function
 
-    Private Function Cerrar() As Boolean
+    Public Function Cerrar() As Boolean
         Try
             If Conexion.State = ConnectionState.Open Then
                 Conexion.Close()
@@ -49,26 +49,25 @@ Public Class Conector
     Public Function EjecutarModificacion(codigoSQL As String) As Integer
         Dim comando As New SqlCommand(codigoSQL, Conexion)
         Try
-            Abrir()
             Return comando.ExecuteNonQuery()
-        Finally
-            Cerrar()
+        Catch ex As Exception
+            Return Nothing
         End Try
     End Function
 
     Public Function EjecutarConsultaSimple(codigoSQL As String) As Object
-        Dim comando As New SqlCommand(codigoSQL, Conexion)
-        Abrir()
-        Return comando.ExecuteScalar(CommandBehavior.CloseConnection)
+        Try
+            Return New SqlCommand(codigoSQL, Conexion).ExecuteScalar()
+        Catch ex As Exception
+            Return Nothing
+        End Try
     End Function
 
     Public Function EjecutarConsultaMutilple(codigoSQL As String) As SqlDataReader
         Try
-            Dim comando As New SqlCommand(codigoSQL, Conexion)
-            Abrir()
-            Return comando.ExecuteReader()
-        Finally
-            'Cerrar()
+            Return New SqlCommand(codigoSQL, Conexion).ExecuteReader
+        Catch ex As Exception
+            Return Nothing
         End Try
     End Function
 End Class

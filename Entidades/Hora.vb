@@ -17,7 +17,11 @@
         Me.HoraFin = horaFin
     End Sub
 
-    Public Overrides Function CamposConValores() As Dictionary(Of String, String)
+    Public Overrides Function Clonar() As EntidadBD
+        Return New Hora(Me.Dia, Me.HoraInicio, Me.HoraFin)
+    End Function
+
+    Public Overrides Function CamposConValores(Optional aptoParaInsert As Boolean = False) As Dictionary(Of String, String)
         Return New Dictionary(Of String, String) From {
             {"DIA", $"'{Me.Dia.ClavePrimaria(0)}'"},
             {"HORA_INICIO", $"'{Me.HoraInicio:hh\:mm\:ss}'"},

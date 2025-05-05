@@ -17,7 +17,7 @@ Public MustInherit Class CambioBD
     Private Function Consulta() As String
 
         If Me.GetType Is GetType(Insert) Then
-            Return $"INSERT INTO {_Objeto.NombreTabla} ({String.Join(", ", _Objeto.CamposConValores.Keys)}) VALUES ({String.Join(", ", _Objeto.CamposConValores.Values)})"
+            Return $"INSERT INTO {_Objeto.NombreTabla} ({String.Join(", ", _Objeto.CamposConValores(True).Keys)}) VALUES ({String.Join(", ", _Objeto.CamposConValores(True).Values)})"
         ElseIf Me.GetType Is GetType(Delete) Then
             Return $"DELETE {_Objeto.NombreTabla} WHERE {_Objeto.ClaveConCampo}"
         ElseIf Me.GetType Is GetType(Update) Then

@@ -54,6 +54,10 @@ Public Class Voluntario
         Me.Estudia = estudia
     End Sub
 
+    Public Overrides Function Clonar() As EntidadBD
+        Return New Voluntario(Me.Nif, Me.Nombre, Me.Apellido1, Me.Apellido2, Me.Correo, Me.Estudia, Me.Telefono, Me.Experiencia)
+    End Function
+
     Public Overrides Function ToString() As String
         Return ApellidoNombre
     End Function
@@ -82,7 +86,7 @@ Public Class Voluntario
         Return Me.DigitosNif.CompareTo(other.DigitosNif)
     End Function
 
-    Public Overrides Function CamposConValores() As Dictionary(Of String, String)
+    Public Overrides Function CamposConValores(Optional aptoParaInsert As Boolean = False) As Dictionary(Of String, String)
         Return New Dictionary(Of String, String) From {
             {"NIF", $"'{Me.Nif}'"},
             {"NOMBRE", $"'{Me.Nombre}'"},

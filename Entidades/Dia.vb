@@ -14,6 +14,10 @@
         Me.Descripcion = descripcion
     End Sub
 
+    Public Overrides Function Clonar() As EntidadBD
+        Return New Dia(Me.Descripcion)
+    End Function
+
     Public Overrides Function Equals(obj As Object) As Boolean
         Return Me.Equals(TryCast(obj, Dia))
     End Function
@@ -23,7 +27,7 @@
         Return other IsNot Nothing AndAlso other.Descripcion.Equals(Descripcion)
     End Function
 
-    Public Overrides Function CamposConValores() As Dictionary(Of String, String)
+    Public Overrides Function CamposConValores(Optional aptoParaInsert As Boolean = False) As Dictionary(Of String, String)
         Return New Dictionary(Of String, String) From {
              {"DESCRIPCION", $"'{Me.Descripcion}'"}}
     End Function

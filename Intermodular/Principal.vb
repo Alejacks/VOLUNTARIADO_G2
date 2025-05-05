@@ -5,78 +5,68 @@ Imports Entidades
 Imports FechaSencilla
 Imports Gestores
 Imports Microsoft.Win32
+Imports System.Drawing
 
 Public Class Principal
-
-    Private Sub Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim ajustes As New Configuracion.Ajustes()
-
-        'MessageBox.Show(ajustes.ObtenerAjuste("origenBaseDatos"))
-        'MessageBox.Show(ajustes.ObtenerAjuste("instanciaSQLServer"))
-
-        'Dim conexionDB As New Conector(ajustes)
-
-        'MessageBox.Show(conexionDB.Conexion.State.ToString)
-
-
-
-        'Dim conexion As New SqlConnection("Data Source=.\SQLEXPRESS; Initial Catalog=VOLUNTARIADO_G2; Integrated Security=True;")
-        'conexion.Open()
-        'MessageBox.Show(conexion.State.ToString)
-
-        'Dim gestorOriginal As New GestorEntidad(Of Organizacion)()
-
-        'Using resultado As SqlDataReader = conexionDB.EjecutarConsultaMutilple("SELECT * FROM ORGANIZACION")
-        '    While resultado.Read()
-        '        gestorOriginal.Insertar(New Organizacion(
-        '        resultado("ID"),
-        '        resultado("NOMBRE"),
-        '        resultado("NOMBRE_RESPONSABLE"),
-        '        resultado("APELLIDO1_RESPONSABLE"),
-        '        If(resultado("APELLIDO2_RESPONSABLE") IsNot DBNull.Value, resultado("APELLIDO2_RESPONSABLE"), Nothing),
-        '        New Fecha(resultado("FECHA_REGISTRO"), "d/m/a")
-        '        ))
-        '    End While
-        'End Using
-
-        'For Each elemento As EntidadBD In gestorOriginal.Elementos
-        '    MessageBox.Show(elemento.ToString())
-        'Next
-
-        'Private Function GetSqlServerName() As String
-        '    Dim instances = GetLocalSqlInstances()
-        '    Return If(instances.Count > 0, instances(0), String.Empty)
-        'End Function
-
-        'Private Function GetLocalSqlInstances() As List(Of String)
-        '    Dim instances As New List(Of String)
-        '    Try
-        '        Using key As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL")
-        '            If key IsNot Nothing Then
-        '                For Each instanceName In key.GetValueNames()
-        '                    If instanceName = "MSSQLSERVER" Then
-        '                        instances.Add(Environment.MachineName)
-        '                    Else
-        '                        instances.Add(Environment.MachineName & "\" & instanceName)
-        '                    End If
-        '                Next
-        '            End If
-        '        End Using
-        '    Catch ex As Exception
-        '    End Try
-        '    Return instances
-        'End Function
-
-
-        'Dim servidor As String = GetSqlServerName()
-    End Sub
-
-    Private Sub TiposDeActividadToolStripMenuItem_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub AjustesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjustesToolStripMenuItem.Click
         Dim formAjustes As New FormAjustes()
-        formAjustes.ShowDialog()
+        formAjustes.ShowDialog(Me)
+        formAjustes.Dispose()
     End Sub
+
+    Private Sub ActividadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActividadesToolStripMenuItem.Click
+        AbrirFormularioHijo(Of FormActividades)()
+    End Sub
+
+    Private Sub VoluntariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VoluntariosToolStripMenuItem.Click
+        AbrirFormularioHijo(Of FormVoluntario)()
+    End Sub
+
+    Private Sub OrganizacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrganizacionesToolStripMenuItem.Click
+        AbrirFormularioHijo(Of FormOrganizacion)()
+    End Sub
+
+    Private Sub CursosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CursosToolStripMenuItem.Click
+        AbrirFormularioHijo(Of FormCursos)()
+    End Sub
+
+    Private Sub ODSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ODSToolStripMenuItem.Click
+        AbrirFormularioHijo(Of FormOds)()
+    End Sub
+
+    Private Sub CascadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CascadaToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.Cascade)
+    End Sub
+
+    Private Sub MosaicoVerticalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MosaicoVerticalToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.TileVertical)
+    End Sub
+
+    Private Sub MosaicoHorizontalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MosaicoHorizontalToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.TileHorizontal)
+    End Sub
+
+    Private Sub CerrarTodoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarTodoToolStripMenuItem.Click, Me.Closing
+        For Each ChildForm As Form In Me.MdiChildren
+            ChildForm.Close()
+        Next
+    End Sub
+
+    Private Sub OrganizarIconosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrganizarIconosToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.ArrangeIcons)
+    End Sub
+
+    Private Sub AbrirFormularioHijo(Of T As {Form, New})()
+        For Each form As Form In Me.MdiChildren
+            If form.GetType() Is GetType(T) Then
+                form.Activate()
+                Exit Sub
+            End If
+        Next
+
+        Dim frmHijo As T = New T()
+        frmHijo.MdiParent = Me
+        frmHijo.Show()
+    End Sub
+
 End Class

@@ -5,7 +5,7 @@
 
     Public Overrides ReadOnly Property NombreTabla As String = "ODS"
 
-    Private Property Id As Integer
+    Public ReadOnly Property Id As Integer
     Public Property Descripcion As String
 
     Public Sub New(id As Integer, descripcion As String)
@@ -13,8 +13,12 @@
         Me.Descripcion = descripcion
     End Sub
 
+    Public Overrides Function Clonar() As EntidadBD
+        Return New Ods(Me.Id, Me.Descripcion)
+    End Function
+
     Public Overrides Function toString() As String
-        Return Descripcion
+        Return $"{Me.Id} - {Me.Descripcion}"
     End Function
 
     Public Overrides Function Equals(obj As Object) As Boolean
@@ -31,7 +35,7 @@
         Return Me.Id.CompareTo(other.Id)
     End Function
 
-    Public Overrides Function CamposConValores() As Dictionary(Of String, String)
+    Public Overrides Function CamposConValores(Optional aptoParaInsert As Boolean = False) As Dictionary(Of String, String)
         Return New Dictionary(Of String, String) From {
              {"ID", Me.Id},
             {"DESCRIPCION", $"'{Me.Descripcion}'"}
